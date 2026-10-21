@@ -220,6 +220,10 @@ nonisolated struct ThreatZone: Sendable, Identifiable {
     /// Raw, exactly as stored. The arrival window is computed here so it decays between
     /// polls instead of jumping once a snapshot lands.
     let etaMinutes: Int?
+    /// When the threat was first reported. `updatedAt` moves on every re-report, so this
+    /// is what a "time since alert" clock counts from. Equal to `updatedAt` on payloads
+    /// from a backend that predates the field.
+    let firstSeenAt: Date
     let updatedAt: Date
     let expiresAt: Date
     let polygons: [ThreatZonePolygon]
@@ -400,6 +404,7 @@ private nonisolated struct FeatureDTO: Decodable {
             directHit: properties.direct_hit ?? (kind == .core),
             sectors: properties.sectors ?? [],
             etaMinutes: properties.eta_minutes,
+            firstSeenAt: properties.first_seen_at.flatMap(GeoJSONTimestamp.date(from:)) ?? updatedAt,
             updatedAt: updatedAt,
             expiresAt: expiresAt,
             polygons: polygons
@@ -417,6 +422,7 @@ private nonisolated struct PropertiesDTO: Decodable {
     let direct_hit: Bool?
     let sectors: [String]?
     let eta_minutes: Int?
+    let first_seen_at: String?
     let updated_at: String
     let expires_at: String
 }

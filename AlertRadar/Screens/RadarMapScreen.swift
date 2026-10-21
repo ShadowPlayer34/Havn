@@ -393,10 +393,10 @@ struct RadarMapScreen: View {
         return threats.arrivalRange
     }
 
-    /// When the alert began: the zone's report time, else when the checks first came back
+    /// When the alert began: the zone's first report, else when the checks first came back
     /// with a risk. Neither depends on an ETA.
     private var alertStart: Date? {
-        dominantZone?.updatedAt ?? threats.alertStartedAt
+        dominantZone?.firstSeenAt ?? threats.alertStartedAt
     }
 
     private var arrivalEstimateVisible: Bool {

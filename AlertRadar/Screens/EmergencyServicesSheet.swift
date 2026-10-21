@@ -43,7 +43,6 @@ struct EmergencyServicesSheet: View {
     /// "I'm safe" message.
     var coordinate: CLLocationCoordinate2D?
 
-    @Environment(\.openURL) private var openURL
     @State private var pending: EmergencyLine?
     @State private var contacts = EmergencyContactsStore()
     @State private var pickingContacts = false
@@ -70,15 +69,7 @@ struct EmergencyServicesSheet: View {
             }
             .scrollIndicators(.hidden)
 
-            if let pending {
-                Color.black.opacity(0.5)
-                    .ignoresSafeArea()
-                    .onTapGesture { self.pending = nil }
-                    .transition(.opacity)
-                confirmCard(pending)
-                    .padding(8)
-                    .transition(.move(edge: .bottom).combined(with: .opacity))
-            }
+            DialConfirmOverlay(line: $pending, coordinate: coordinate)
         }
         .animation(.snappy(duration: 0.3), value: pending)
         .background(VA.canvas)
@@ -365,13 +356,43 @@ struct EmergencyServicesSheet: View {
 
     private var safeMessage: String {
         guard let coordinate else { return "I'm safe." }
-        let ll = String(format: "%.5f,%.5f", coordinate.latitude, coordinate.longitude)
-        return "I'm safe. My location: https://maps.apple.com/?ll=\(ll)"
+        return "I'm safe. My location: \(coordinate.mapsLink)"
+    }
+}
+
+extension CLLocationCoordinate2D {
+    /// Opens in Apple Maps on an iPhone and as a web page anywhere else.
+    var mapsLink: String {
+        "https://maps.apple.com/?ll=" + String(format: "%.5f,%.5f", latitude, longitude)
+    }
+}
+
+// MARK: - Confirm
+
+/// The confirm card every quick-dial number goes through, over a dimmed backdrop. Shared
+/// by the emergency screen and the guides; the presenter animates `line`.
+struct DialConfirmOverlay: View {
+    @Binding var line: EmergencyLine?
+    /// Shown on the card so it can be read out to the operator.
+    var coordinate: CLLocationCoordinate2D?
+
+    @Environment(\.openURL) private var openURL
+
+    var body: some View {
+        ZStack(alignment: .bottom) {
+            if let line {
+                Color.black.opacity(0.5)
+                    .ignoresSafeArea()
+                    .onTapGesture { self.line = nil }
+                    .transition(.opacity)
+                card(line)
+                    .padding(8)
+                    .transition(.move(edge: .bottom).combined(with: .opacity))
+            }
+        }
     }
 
-    // MARK: Confirm
-
-    private func confirmCard(_ line: EmergencyLine) -> some View {
+    private func card(_ line: EmergencyLine) -> some View {
         VStack(spacing: 6) {
             Text(line.number)
                 .font(VAFont.rounded(52))
@@ -388,7 +409,7 @@ struct EmergencyServicesSheet: View {
 
             VStack(spacing: 8) {
                 Button {
-                    pending = nil
+                    self.line = nil
                     if let url = line.telURL { openURL(url) }
                 } label: {
                     Text("Call \(line.number)")
@@ -408,7 +429,7 @@ struct EmergencyServicesSheet: View {
                 .buttonStyle(.plain)
 
                 Button {
-                    pending = nil
+                    self.line = nil
                 } label: {
                     Text("Cancel")
                         .font(VAFont.display(16))
@@ -457,7 +478,7 @@ struct EmergencyServicesSheet: View {
 ///
 /// Presented from a zero-size host rather than returned as the representable's own
 /// controller: embedded in a SwiftUI sheet the picker shows up as an empty wrapper.
-private struct ContactPicker: UIViewControllerRepresentable {
+struct ContactPicker: UIViewControllerRepresentable {
     @Binding var isPresented: Bool
     var onPick: ([CNContact]) -> Void
 
@@ -493,7 +514,7 @@ private struct ContactPicker: UIViewControllerRepresentable {
 }
 
 /// The system message composer, prefilled. Only the person can press Send.
-private struct MessageComposer: UIViewControllerRepresentable {
+struct MessageComposer: UIViewControllerRepresentable {
     @Binding var isPresented: Bool
     var recipients: [String]
     var messageText: String

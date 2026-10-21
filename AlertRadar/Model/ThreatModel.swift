@@ -28,6 +28,7 @@ final class ThreatModel {
     var systemSurfacesOpen = false
     var dashboardOpen = false
     var emergencyOpen = false
+    var guidesOpen = false
 
     // MARK: Countdown
 

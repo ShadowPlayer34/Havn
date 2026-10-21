@@ -106,6 +106,11 @@ struct RadarMapScreen: View {
                 .presentationDetents([.large])
                 .presentationDragIndicator(.visible)
         }
+        .sheet(isPresented: $model.guidesOpen) {
+            EmergencyGuidesSheet(coordinate: location.coordinate)
+                .presentationDetents([.large])
+                .presentationDragIndicator(.visible)
+        }
         .sheet(isPresented: $model.systemSurfacesOpen) {
             SystemSurfacesScreen()
                 .environment(model)
@@ -319,6 +324,9 @@ struct RadarMapScreen: View {
         Menu {
             Button("Emergency Services", systemImage: "phone.fill") {
                 model.emergencyOpen = true
+            }
+            Button("Emergency Guides", systemImage: "cross.case") {
+                model.guidesOpen = true
             }
             Button("Clean Feed", systemImage: "list.bullet.rectangle") {
                 model.feedDrawerOpen = true

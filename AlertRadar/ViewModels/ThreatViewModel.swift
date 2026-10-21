@@ -37,6 +37,10 @@ final class ThreatViewModel {
     /// `/check` sends no `updated_at`, so this can only be anchored at the moment it
     /// arrived, and it restarts on every check rather than decaying.
     private(set) var arrivalRange: ClosedRange<Date>?
+    /// The first check that came back with a risk, held until a check comes back clear.
+    /// `/check` sends no alert start, so this is the closest the app can get without
+    /// overlay geometry.
+    private(set) var alertStartedAt: Date?
     /// Nearest shelters for the last checked coordinate, closest first.
     private(set) var shelters: [Shelter] = []
     /// Kept separate from `state` so a failed refresh does not blank the last good answer.
@@ -190,6 +194,11 @@ final class ThreatViewModel {
                     arrivalRange = now...now.addingTimeInterval(Double(minutes) * 60)
                 } else {
                     arrivalRange = nil
+                }
+                if response.riskLevel == .none {
+                    alertStartedAt = nil
+                } else if alertStartedAt == nil {
+                    alertStartedAt = .now
                 }
                 state = .success(response)
             } catch is CancellationError {

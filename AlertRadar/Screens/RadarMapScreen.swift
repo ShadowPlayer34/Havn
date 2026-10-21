@@ -20,6 +20,10 @@ struct RadarMapScreen: View {
     /// for — once at launch, whenever the area layer is switched on, and from the menu —
     /// and takes itself away again.
     @State private var legendVisible = false
+    #if DEBUG
+    /// Test-only: the estimated arrival window is unproven, so it is hidden unless switched on.
+    @AppStorage("debug.showArrivalEstimate") private var showArrivalEstimate = false
+    #endif
     @State private var legendTimer: Task<Void, Never>?
     @State private var legendShownThisLaunch = false
 
@@ -320,6 +324,9 @@ struct RadarMapScreen: View {
             Button("Map Legend", systemImage: "paintpalette") {
                 showLegend()
             }
+            #if DEBUG
+            Toggle("Test: arrival estimate", systemImage: "hourglass", isOn: $showArrivalEstimate)
+            #endif
         } label: {
             VStack(spacing: 3.5) {
                 bar(16)
@@ -386,6 +393,20 @@ struct RadarMapScreen: View {
         return threats.arrivalRange
     }
 
+    /// When the alert began: the zone's report time, else when the checks first came back
+    /// with a risk. Neither depends on an ETA.
+    private var alertStart: Date? {
+        dominantZone?.updatedAt ?? threats.alertStartedAt
+    }
+
+    private var arrivalEstimateVisible: Bool {
+        #if DEBUG
+        showArrivalEstimate
+        #else
+        false
+        #endif
+    }
+
     /// No response yet is not "clear" — it stays neutral until the backend says otherwise.
     private var statusAccent: Color {
         threats.response == nil ? VA.secondary(0.5) : threats.riskLevel.accent
@@ -446,7 +467,7 @@ struct RadarMapScreen: View {
             }
             return threats.errorMessage ?? "Waiting for the first sector check."
         }
-        if response.riskLevel != .none { return "No arrival estimate for this sector yet." }
+        if response.riskLevel != .none { return "Alert active in this sector." }
         guard let nearest = threats.shelters.first else { return "Nothing inbound." }
         return "Nothing inbound. Nearest shelter is \(nearest.distanceLabel) away."
     }
@@ -543,40 +564,58 @@ struct RadarMapScreen: View {
                         .foregroundStyle(statusForeground)
                 }
 
-                // The arrival block only exists when something is actually inbound; an empty
-                // countdown frame reads as broken rather than calm.
-                if let window = arrivalLabel {
-                    HStack(alignment: .bottom, spacing: 14) {
+                // The alert block only exists when something is actually inbound; an empty
+                // timer frame reads as broken rather than calm. Keyed on the alert itself,
+                // not on an ETA — most alerts arrive without one.
+                if alertStart != nil || (arrivalEstimateVisible && arrivalLabel != nil) {
+                    if let start = alertStart {
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("ARRIVAL WINDOW")
+                            Text("TIME SINCE ALERT")
                                 .font(VAFont.display(10))
                                 .tracking(em: 0.1, size: 10)
                                 .foregroundStyle(.white.opacity(0.5))
-                            Text(window)
+                            Text(start, style: .timer)
                                 .font(VAFont.rounded(42))
                                 .tracking(em: -0.035, size: 42)
                                 .foregroundStyle(.white)
-                                .contentTransition(.numericText())
-                                .animation(.snappy(duration: 0.3), value: window)
+                                .monospacedDigit()
                         }
-                        Spacer(minLength: 0)
-                        if let range = arrivalRange {
-                            VStack(alignment: .trailing, spacing: 5) {
-                                // Ticks locally off the deadline rather than polling the backend.
-                                Text(timerInterval: range, countsDown: true)
-                                    .font(VAFont.mono(20, .semibold))
-                                    .tracking(em: -0.02, size: 20)
-                                    .foregroundStyle(VA.orange)
-                                    .monospacedDigit()
-                                Text("earliest arrival")
-                                    .font(VAFont.display(10, .medium))
-                                    .foregroundStyle(.white.opacity(0.5))
-                            }
-                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
                     }
 
-                    if let range = arrivalRange {
-                        ThreatProgressTimer(range: range)
+                    if arrivalEstimateVisible, let window = arrivalLabel {
+                        HStack(alignment: .bottom, spacing: 14) {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("ARRIVAL WINDOW (TEST)")
+                                    .font(VAFont.display(10))
+                                    .tracking(em: 0.1, size: 10)
+                                    .foregroundStyle(.white.opacity(0.5))
+                                Text(window)
+                                    .font(VAFont.rounded(42))
+                                    .tracking(em: -0.035, size: 42)
+                                    .foregroundStyle(.white)
+                                    .contentTransition(.numericText())
+                                    .animation(.snappy(duration: 0.3), value: window)
+                            }
+                            Spacer(minLength: 0)
+                            if let range = arrivalRange {
+                                VStack(alignment: .trailing, spacing: 5) {
+                                    // Ticks locally off the deadline rather than polling the backend.
+                                    Text(timerInterval: range, countsDown: true)
+                                        .font(VAFont.mono(20, .semibold))
+                                        .tracking(em: -0.02, size: 20)
+                                        .foregroundStyle(VA.orange)
+                                        .monospacedDigit()
+                                    Text("earliest arrival")
+                                        .font(VAFont.display(10, .medium))
+                                        .foregroundStyle(.white.opacity(0.5))
+                                }
+                            }
+                        }
+
+                        if let range = arrivalRange {
+                            ThreatProgressTimer(range: range)
+                        }
                     }
                 } else {
                     Text(quietLine)

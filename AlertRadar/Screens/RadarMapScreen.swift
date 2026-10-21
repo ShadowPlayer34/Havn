@@ -101,6 +101,11 @@ struct RadarMapScreen: View {
                 .presentationDetents([.fraction(ThreatDashboardView.detentFraction), .large])
                 .presentationDragIndicator(.visible)
         }
+        .sheet(isPresented: $model.emergencyOpen) {
+            EmergencyServicesSheet(coordinate: location.coordinate)
+                .presentationDetents([.large])
+                .presentationDragIndicator(.visible)
+        }
         .sheet(isPresented: $model.systemSurfacesOpen) {
             SystemSurfacesScreen()
                 .environment(model)
@@ -312,6 +317,9 @@ struct RadarMapScreen: View {
 
     private var menuButton: some View {
         Menu {
+            Button("Emergency Services", systemImage: "phone.fill") {
+                model.emergencyOpen = true
+            }
             Button("Clean Feed", systemImage: "list.bullet.rectangle") {
                 model.feedDrawerOpen = true
             }

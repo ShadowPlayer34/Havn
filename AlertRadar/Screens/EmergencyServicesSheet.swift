@@ -1,4 +1,6 @@
+import ContactsUI
 import CoreLocation
+import MessageUI
 import SwiftUI
 
 /// One number on the emergency screen. `number` is as printed ("15-80"); the dialled form
@@ -34,14 +36,19 @@ struct EmergencyLine: Identifiable, Equatable {
 /// Emergency services and quick dial — design option 3c. Every number goes through a
 /// confirm card first: a mis-tap on a grid this dense should not ring the police.
 ///
-/// The design's "My contacts" and "I'm safe" rows are not here yet — they need a contacts
-/// picker and SMS, which the app does not have.
+/// "I'm safe" opens a prefilled message rather than sending one: iOS has no permission
+/// that lets an app send SMS by itself, so the person always presses Send.
 struct EmergencyServicesSheet: View {
-    /// Shown on the confirm card so it can be read out to the operator.
+    /// Shown on the confirm card so it can be read out to the operator, and put in the
+    /// "I'm safe" message.
     var coordinate: CLLocationCoordinate2D?
 
     @Environment(\.openURL) private var openURL
     @State private var pending: EmergencyLine?
+    @State private var contacts = EmergencyContactsStore()
+    @State private var pickingContacts = false
+    @State private var composingMessage = false
+    @State private var messagesUnavailable = false
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -52,6 +59,9 @@ struct EmergencyServicesSheet: View {
                     servicesGrid
                     sectionLabel("KYIV · CITY LINES")
                     cityList
+                    sectionLabel("MY CONTACTS")
+                    contactsRow
+                    safeButton
                 }
                 .padding(.horizontal, 16)
                 // Clear of the system grabber.
@@ -72,6 +82,23 @@ struct EmergencyServicesSheet: View {
         }
         .animation(.snappy(duration: 0.3), value: pending)
         .background(VA.canvas)
+        .background {
+            ContactPicker(isPresented: $pickingContacts) { picked in
+                contacts.add(picked.compactMap(EmergencyContact.init))
+            }
+            MessageComposer(
+                isPresented: $composingMessage,
+                recipients: contacts.contacts.map(\.phone),
+                messageText: safeMessage
+            ) { result in
+                if result == .sent { contacts.markSent(to: contacts.contacts.count) }
+            }
+        }
+        .alert("Messages unavailable", isPresented: $messagesUnavailable) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("This device cannot send text messages.")
+        }
     }
 
     // MARK: Directory
@@ -212,6 +239,136 @@ struct EmergencyServicesSheet: View {
         .overlay(RoundedRectangle(cornerRadius: 22).strokeBorder(.white.opacity(0.12), lineWidth: 0.5))
     }
 
+    // MARK: Contacts
+
+    @ViewBuilder private var contactsRow: some View {
+        if contacts.contacts.isEmpty {
+            Button {
+                pickingContacts = true
+            } label: {
+                HStack(spacing: 12) {
+                    Image(systemName: "person.crop.circle.badge.plus")
+                        .font(.system(size: 17, weight: .semibold))
+                        .foregroundStyle(Color(hex: 0x5CC2F0))
+                        .frame(width: 34, height: 34)
+                        .background(Circle().fill(Color(hex: 0x3A3A3C)))
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text("Choose emergency contacts")
+                            .font(VAFont.display(15, .medium))
+                            .foregroundStyle(.white)
+                        Text("Up to \(EmergencyContactsStore.limit) people get your \"I'm safe\" message")
+                            .font(VAFont.display(12, .regular))
+                            .foregroundStyle(VA.secondary(0.5))
+                    }
+                    Spacer(minLength: 0)
+                }
+                .padding(12)
+                .background(RoundedRectangle(cornerRadius: 20).fill(.white.opacity(0.07)))
+                .overlay(RoundedRectangle(cornerRadius: 20).strokeBorder(.white.opacity(0.12), lineWidth: 0.5))
+                .contentShape(RoundedRectangle(cornerRadius: 20))
+            }
+            .buttonStyle(.plain)
+        } else {
+            HStack(spacing: 8) {
+                ForEach(contacts.contacts) { contact in
+                    contactTile(contact)
+                }
+                if !contacts.isFull {
+                    Button {
+                        pickingContacts = true
+                    } label: {
+                        Image(systemName: "plus")
+                            .font(.system(size: 17, weight: .semibold))
+                            .foregroundStyle(Color(hex: 0x5CC2F0))
+                            .frame(width: 58, height: 58)
+                            .background(RoundedRectangle(cornerRadius: 20).fill(.white.opacity(0.07)))
+                            .overlay(RoundedRectangle(cornerRadius: 20).strokeBorder(.white.opacity(0.12), lineWidth: 0.5))
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("Add emergency contact")
+                }
+            }
+        }
+    }
+
+    /// Long-press to remove — there is no edit mode for a row of three.
+    private func contactTile(_ contact: EmergencyContact) -> some View {
+        HStack(spacing: 10) {
+            Text(contact.initial)
+                .font(VAFont.display(13))
+                .foregroundStyle(.white)
+                .frame(width: 34, height: 34)
+                .background(Circle().fill(Color(hex: 0x3A3A3C)))
+            Text(contact.name)
+                .font(VAFont.display(14, .medium))
+                .foregroundStyle(.white)
+                .lineLimit(1)
+            Spacer(minLength: 0)
+        }
+        .padding(12)
+        .frame(maxWidth: .infinity)
+        .background(RoundedRectangle(cornerRadius: 20).fill(.white.opacity(0.07)))
+        .overlay(RoundedRectangle(cornerRadius: 20).strokeBorder(.white.opacity(0.12), lineWidth: 0.5))
+        .contentShape(.contextMenuPreview, RoundedRectangle(cornerRadius: 20))
+        .contextMenu {
+            Button("Remove", systemImage: "minus.circle", role: .destructive) {
+                contacts.remove(contact)
+            }
+        }
+    }
+
+    private var safeButton: some View {
+        let sent = contacts.recentlySent()
+        let label: String
+        let hue: Color
+        let text: Color
+        if let sent {
+            let people = sent.count == 1 ? "1 contact" : "\(sent.count) contacts"
+            label = "Sent to \(people) · \(sent.at.formatted(date: .omitted, time: .shortened))"
+            hue = VA.green
+            text = Color(hex: 0x7EE29A)
+        } else {
+            label = "Send \"I'm safe\" + location"
+            hue = VA.cyan
+            text = VA.cyanText
+        }
+
+        return Button {
+            sendSafe()
+        } label: {
+            Text(label)
+                .font(VAFont.display(16))
+                .foregroundStyle(text)
+                .frame(maxWidth: .infinity)
+                .frame(height: 54)
+                .background(Capsule().fill(hue.opacity(0.2)))
+                .overlay(Capsule().strokeBorder(hue.opacity(0.5), lineWidth: 0.5))
+                .contentShape(Capsule())
+        }
+        .buttonStyle(.plain)
+    }
+
+    /// With nobody chosen yet the first tap opens the picker; the message goes out on the
+    /// next one. Chaining the composer straight off the picker's dismissal races UIKit's
+    /// own dismiss animation.
+    private func sendSafe() {
+        guard !contacts.contacts.isEmpty else {
+            pickingContacts = true
+            return
+        }
+        guard MFMessageComposeViewController.canSendText() else {
+            messagesUnavailable = true
+            return
+        }
+        composingMessage = true
+    }
+
+    private var safeMessage: String {
+        guard let coordinate else { return "I'm safe." }
+        let ll = String(format: "%.5f,%.5f", coordinate.latitude, coordinate.longitude)
+        return "I'm safe. My location: https://maps.apple.com/?ll=\(ll)"
+    }
+
     // MARK: Confirm
 
     private func confirmCard(_ line: EmergencyLine) -> some View {
@@ -289,6 +446,85 @@ struct EmergencyServicesSheet: View {
                 .font(VAFont.display(12.5, .regular))
                 .foregroundStyle(VA.secondary(0.5))
                 .multilineTextAlignment(.center)
+        }
+    }
+}
+
+// MARK: - System pickers
+
+/// The system contact picker. It runs out of process, so the app needs no Contacts
+/// permission and only ever sees the people picked.
+///
+/// Presented from a zero-size host rather than returned as the representable's own
+/// controller: embedded in a SwiftUI sheet the picker shows up as an empty wrapper.
+private struct ContactPicker: UIViewControllerRepresentable {
+    @Binding var isPresented: Bool
+    var onPick: ([CNContact]) -> Void
+
+    func makeUIViewController(context: Context) -> UIViewController { UIViewController() }
+
+    func updateUIViewController(_ host: UIViewController, context: Context) {
+        context.coordinator.parent = self
+        guard isPresented, host.presentedViewController == nil else { return }
+        let picker = CNContactPickerViewController()
+        picker.delegate = context.coordinator
+        picker.displayedPropertyKeys = [CNContactPhoneNumbersKey]
+        picker.predicateForEnablingContact = NSPredicate(format: "phoneNumbers.@count > 0")
+        host.present(picker, animated: true)
+    }
+
+    func makeCoordinator() -> Coordinator { Coordinator(parent: self) }
+
+    final class Coordinator: NSObject, CNContactPickerDelegate {
+        var parent: ContactPicker
+
+        init(parent: ContactPicker) { self.parent = parent }
+
+        // Implementing the plural form is what turns on multiple selection.
+        func contactPicker(_ picker: CNContactPickerViewController, didSelect contacts: [CNContact]) {
+            parent.isPresented = false
+            parent.onPick(contacts)
+        }
+
+        func contactPickerDidCancel(_ picker: CNContactPickerViewController) {
+            parent.isPresented = false
+        }
+    }
+}
+
+/// The system message composer, prefilled. Only the person can press Send.
+private struct MessageComposer: UIViewControllerRepresentable {
+    @Binding var isPresented: Bool
+    var recipients: [String]
+    var messageText: String
+    var onFinish: (MessageComposeResult) -> Void
+
+    func makeUIViewController(context: Context) -> UIViewController { UIViewController() }
+
+    func updateUIViewController(_ host: UIViewController, context: Context) {
+        context.coordinator.parent = self
+        guard isPresented, host.presentedViewController == nil else { return }
+        let composer = MFMessageComposeViewController()
+        composer.messageComposeDelegate = context.coordinator
+        composer.recipients = recipients
+        composer.body = messageText
+        host.present(composer, animated: true)
+    }
+
+    func makeCoordinator() -> Coordinator { Coordinator(parent: self) }
+
+    final class Coordinator: NSObject, MFMessageComposeViewControllerDelegate {
+        var parent: MessageComposer
+
+        init(parent: MessageComposer) { self.parent = parent }
+
+        func messageComposeViewController(
+            _ controller: MFMessageComposeViewController,
+            didFinishWith result: MessageComposeResult
+        ) {
+            controller.dismiss(animated: true)
+            parent.isPresented = false
+            parent.onFinish(result)
         }
     }
 }

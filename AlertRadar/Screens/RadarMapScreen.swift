@@ -27,6 +27,9 @@ struct RadarMapScreen: View {
     #endif
     @State private var legendTimer: Task<Void, Never>?
     @State private var legendShownThisLaunch = false
+    /// When the alert the user is under began. Held for as long as some alert lasts, so a
+    /// threat expiring while a later one still covers the user does not restart the clock.
+    @State private var alertStart: Date?
 
     var body: some View {
         @Bindable var model = model
@@ -37,7 +40,10 @@ struct RadarMapScreen: View {
                 chrome
             }
         }
-        .onAppear { liveActivity.submit(activityState) }
+        .onAppear {
+            updateAlertStart()
+            liveActivity.submit(activityState)
+        }
         .onDisappear { legendTimer?.cancel() }
         .onChange(of: zones.hasLoaded) {
             // Once per launch, and keyed on the payload rather than on appearance: the
@@ -60,13 +66,18 @@ struct RadarMapScreen: View {
         }
         // The overlay's own tick is the clock here: it moves every few seconds, and the
         // controller pushes only when the words actually change.
-        .onChange(of: zones.tick) { liveActivity.submit(activityState) }
+        .onChange(of: zones.tick) {
+            updateAlertStart()
+            liveActivity.submit(activityState)
+        }
         .onChange(of: location.lastFix) {
+            updateAlertStart()
             // Every accepted fix asks the backend; the view model debounces by 50 m / 30 s.
             guard let fix = location.lastFix else { return }
             threats.check(at: fix, force: false)
         }
         .onChange(of: threats.riskLevel) {
+            updateAlertStart()
             scenario.risk = threats.response == nil ? .none : threats.riskLevel
             // A change of level should not wait for the next tick to reach the lock screen.
             liveActivity.submit(activityState)
@@ -372,10 +383,24 @@ struct RadarMapScreen: View {
         return threats.arrivalRange
     }
 
-    /// When the alert began: the zone's first report, else when the checks first came back
-    /// with a risk. Neither depends on an ETA.
-    private var alertStart: Date? {
-        dominantZone?.firstSeenAt ?? threats.alertStartedAt
+    /// When the alert began: the earliest report among the threats over the user, else when
+    /// the checks first came back with a risk. Neither depends on an ETA. Gated the same way
+    /// as `dominantZone` — the server decides whether there is an alert at all.
+    private var currentAlertStart: Date? {
+        if let coordinate = location.coordinate, threats.response?.inRiskZone ?? true,
+           let start = zones.earliestFirstSeen(at: coordinate) {
+            return start
+        }
+        return threats.alertStartedAt
+    }
+
+    /// Only ever moves back while an alert lasts; clears once nothing is over the user.
+    private func updateAlertStart() {
+        guard let current = currentAlertStart else {
+            alertStart = nil
+            return
+        }
+        alertStart = min(alertStart ?? current, current)
     }
 
     private var arrivalEstimateVisible: Bool {

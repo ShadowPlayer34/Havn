@@ -150,4 +150,14 @@ final class ThreatZonesViewModel {
         }
         return best
     }
+
+    /// The earliest report among every threat standing over a coordinate. Each new report
+    /// arrives as a threat of its own, so reading `firstSeenAt` off the dominant zone alone
+    /// restarts the clock whenever a newer threat outranks the one that started the alert.
+    func earliestFirstSeen(at coordinate: CLLocationCoordinate2D) -> Date? {
+        zones
+            .filter { $0.kind.isThreatShape && $0.contains(coordinate) }
+            .map(\.firstSeenAt)
+            .min()
+    }
 }

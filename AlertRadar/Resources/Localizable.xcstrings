@@ -1392,7 +1392,17 @@
         }
       }
     },
-    "Feed" : {},
+    "Feed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стрічка"
+          }
+        }
+      }
+    },
     "Fire and smoke" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1426,7 +1436,17 @@
         }
       }
     },
-    "Free · no SIM needed for 112" : {},
+    "Free · no SIM needed for 112" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Безкоштовно · для 112 SIM не потрібна"
+          }
+        }
+      }
+    },
     "Gas leaks" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2043,7 +2063,17 @@
         }
       }
     },
-    "Map" : {},
+    "Map" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Карта"
+          }
+        }
+      }
+    },
     "Map Legend" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2905,7 +2935,17 @@
         }
       }
     },
-    "SOS" : {},
+    "SOS" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SOS"
+          }
+        }
+      }
+    },
     "SOURCE" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3649,6 +3689,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ваші координати — продиктуйте їх, якщо не можете назвати адресу."
+          }
+        }
+      }
+    },
+    "Current location" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поточне місцезнаходження"
           }
         }
       }

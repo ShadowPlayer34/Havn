@@ -5,11 +5,31 @@ import SwiftUI
 struct CleanFeedDrawer: View {
     @Environment(ThreatModel.self) private var model
     @State private var dragOffset: CGFloat = 0
+    /// Rendered as a tab rather than a bottom drawer: no grab handle, no dismiss.
+    var embedded = false
 
     /// 660 of the 874pt design canvas.
     private let heightFraction: CGFloat = 660.0 / 874.0
 
     var body: some View {
+        if embedded {
+            VStack(spacing: 14) {
+                header
+                filters
+                list
+                footer
+            }
+            .padding(.horizontal, 16)
+            .padding(.top, 12)
+            .padding(.bottom, 12)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .background(VA.canvas.ignoresSafeArea())
+        } else {
+            drawerBody
+        }
+    }
+
+    private var drawerBody: some View {
         GeometryReader { geo in
             VStack(spacing: 0) {
                 Color.clear

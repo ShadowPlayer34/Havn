@@ -9,7 +9,8 @@ struct RadarMapScreen: View {
     @Environment(LiveActivityController.self) private var liveActivity
     @Environment(ThreatViewModel.self) private var threats
     @Environment(ThreatZonesViewModel.self) private var zones
-    @State private var location = LocationProvider()
+    /// Owned by ContentView so the SOS and Guides tabs read the same fix.
+    var location: LocationProvider
     @State private var camera: MapCameraPosition = .region(ThreatScenario.region(around: LocationProvider.fallback))
     @State private var scale: MapScale?
     @State private var selectedShelter: Shelter?
@@ -34,16 +35,8 @@ struct RadarMapScreen: View {
             ZStack {
                 map(height: geo.size.height)
                 chrome
-
-                if model.feedDrawerOpen {
-                    CleanFeedDrawer()
-                        .transition(.move(edge: .bottom))
-                        .zIndex(1)
-                }
             }
         }
-        .animation(.spring(response: 0.42, dampingFraction: 0.86), value: model.feedDrawerOpen)
-        .task { await location.start() }
         .onAppear { liveActivity.submit(activityState) }
         .onDisappear { legendTimer?.cancel() }
         .onChange(of: zones.hasLoaded) {
@@ -99,16 +92,6 @@ struct RadarMapScreen: View {
         .sheet(isPresented: $model.dashboardOpen) {
             ThreatDashboardView()
                 .presentationDetents([.fraction(ThreatDashboardView.detentFraction), .large])
-                .presentationDragIndicator(.visible)
-        }
-        .sheet(isPresented: $model.emergencyOpen) {
-            EmergencyServicesSheet(coordinate: location.coordinate)
-                .presentationDetents([.large])
-                .presentationDragIndicator(.visible)
-        }
-        .sheet(isPresented: $model.guidesOpen) {
-            EmergencyGuidesSheet(coordinate: location.coordinate)
-                .presentationDetents([.large])
                 .presentationDragIndicator(.visible)
         }
         .sheet(isPresented: $model.systemSurfacesOpen) {
@@ -207,17 +190,6 @@ struct RadarMapScreen: View {
         }
         .padding(.horizontal, 12)
         .padding(.bottom, 6)
-        .opacity(model.feedDrawerOpen ? 0 : 1)
-        .animation(.easeInOut(duration: 0.25), value: model.feedDrawerOpen)
-        .allowsHitTesting(!model.feedDrawerOpen)
-        .overlay(alignment: .top) {
-            // The location capsule stays legible above the feed drawer.
-            if model.feedDrawerOpen {
-                topRow
-                    .padding(.horizontal, 12)
-                    .transition(.opacity)
-            }
-        }
     }
 
     private var topRow: some View {
@@ -322,15 +294,6 @@ struct RadarMapScreen: View {
 
     private var menuButton: some View {
         Menu {
-            Button("Emergency Services", systemImage: "phone.fill") {
-                model.emergencyOpen = true
-            }
-            Button("Emergency Guides", systemImage: "cross.case") {
-                model.guidesOpen = true
-            }
-            Button("Clean Feed", systemImage: "list.bullet.rectangle") {
-                model.feedDrawerOpen = true
-            }
             Button("Live Activity & Lock Screen", systemImage: "iphone.gen3") {
                 model.systemSurfacesOpen = true
             }

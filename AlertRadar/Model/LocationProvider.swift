@@ -23,7 +23,7 @@ final class LocationProvider {
     /// The coordinate every overlay is anchored to.
     var anchor: CLLocationCoordinate2D { coordinate ?? Self.fallback }
     /// Never claims the sample place name once a real fix exists.
-    var displayName: String { placeName ?? (hasFix ? "Current location" : Self.fallbackPlaceName) }
+    var displayName: String { placeName ?? (hasFix ? String(localized: "Current location") : Self.fallbackPlaceName) }
     /// True once a real fix has been used to place the scenario.
     var hasFix: Bool { coordinate != nil }
 

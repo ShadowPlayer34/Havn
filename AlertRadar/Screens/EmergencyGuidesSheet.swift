@@ -3,8 +3,8 @@ import MessageUI
 import SwiftUI
 
 /// One "what to do" guide. The text ships in the app, so it reads the same with no signal.
-struct EmergencyGuide: Identifiable, Equatable {
-    struct Step: Equatable {
+struct EmergencyGuide: Identifiable, Hashable {
+    struct Step: Hashable {
         let title: String
         let detail: String
     }
@@ -119,17 +119,24 @@ struct EmergencyGuidesSheet: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            if let open {
-                detail(open)
-                    .transition(.move(edge: .trailing))
-            } else {
+            // A real navigation stack, so the system swipe back works. The list draws its own
+            // large title and hides the bar; a guide keeps the system bar, transparent, for its
+            // back button — hiding the bar there switches the swipe-back gesture off.
+            NavigationStack {
                 list
-                    .transition(.move(edge: .leading))
+                    .background(VA.canvas)
+                    .navigationTitle("Guides")
+                    .toolbar(.hidden, for: .navigationBar)
+                    .navigationDestination(item: $open) { guide in
+                        detail(guide)
+                            .background(VA.canvas)
+                            .navigationBarTitleDisplayMode(.inline)
+                            .toolbarBackground(.hidden, for: .navigationBar)
+                    }
             }
 
             DialConfirmOverlay(line: $pending, coordinate: coordinate)
         }
-        .animation(.snappy(duration: 0.3), value: open)
         .animation(.snappy(duration: 0.3), value: pending)
         .background(VA.canvas)
         .background {
@@ -237,8 +244,6 @@ struct EmergencyGuidesSheet: View {
         ZStack(alignment: .bottom) {
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
-                    backButton
-
                     VStack(alignment: .leading, spacing: 6) {
                         Text(guide.title)
                             .font(VAFont.display(30, .bold))
@@ -259,7 +264,7 @@ struct EmergencyGuidesSheet: View {
                     warningCard(guide.warning)
                 }
                 .padding(.horizontal, 16)
-                .padding(.top, 24)
+                .padding(.top, 8)
                 // Clear of the action bar.
                 .padding(.bottom, 96)
             }
@@ -269,25 +274,6 @@ struct EmergencyGuidesSheet: View {
                 .padding(.horizontal, 12)
                 .padding(.bottom, 8)
         }
-    }
-
-    private var backButton: some View {
-        Button {
-            open = nil
-        } label: {
-            HStack(spacing: 4) {
-                Image(systemName: "chevron.left")
-                    .font(.system(size: 17, weight: .semibold))
-                Text("Guides")
-                    .font(VAFont.display(15))
-            }
-            .foregroundStyle(Color(hex: 0x5CC2F0))
-            .padding(.leading, 12)
-            .padding(.trailing, 16)
-            .frame(height: 44)
-            .vaGlass(Capsule(), interactive: true)
-        }
-        .buttonStyle(.plain)
     }
 
     private func stepCard(_ step: EmergencyGuide.Step, number: Int) -> some View {

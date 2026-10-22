@@ -95,16 +95,16 @@ struct EmergencyServicesSheet: View {
     // MARK: Directory
 
     private var header: some View {
-        HStack(alignment: .lastTextBaseline, spacing: 10) {
+        VStack(alignment: .leading, spacing: 4) {
             Text("Emergency")
                 .font(VAFont.display(34, .bold))
                 .tracking(em: -0.02, size: 34)
                 .foregroundStyle(.white)
-            Spacer(minLength: 0)
             Text("Free · no SIM needed for 112")
-                .font(VAFont.display(12, .medium))
+                .font(VAFont.display(13, .medium))
                 .foregroundStyle(VA.secondary(0.45))
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal, 4)
     }
 
@@ -159,14 +159,15 @@ struct EmergencyServicesSheet: View {
 
     private func serviceTile(_ line: EmergencyLine) -> some View {
         VStack(alignment: .leading, spacing: 6) {
-            HStack(spacing: 7) {
+            HStack(alignment: .firstTextBaseline, spacing: 7) {
                 Circle()
                     .fill(line.color ?? VA.secondary())
                     .frame(width: 8, height: 8)
                 Text(line.name)
                     .font(VAFont.display(12))
                     .foregroundStyle(VA.secondary(0.7))
-                    .lineLimit(1)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
             }
             Text(line.number)
                 .font(VAFont.rounded(36))
@@ -176,11 +177,13 @@ struct EmergencyServicesSheet: View {
             Text(line.detail)
                 .font(VAFont.display(11.5, .regular))
                 .foregroundStyle(VA.secondary(0.5))
-                .lineLimit(2)
+                .lineLimit(3)
+                .fixedSize(horizontal: false, vertical: true)
         }
         .padding(14)
-        // The design's 118 includes the padding (`box-sizing: border-box`).
-        .frame(maxWidth: .infinity, minHeight: 118, maxHeight: 118, alignment: .leading)
+        // The design's 118 includes the padding (`box-sizing: border-box`). It is a minimum:
+        // longer translations wrap onto more lines and the tile grows with them.
+        .frame(maxWidth: .infinity, minHeight: 118, alignment: .leading)
         .background(RoundedRectangle(cornerRadius: 24).fill(.white.opacity(0.07)))
         .overlay(RoundedRectangle(cornerRadius: 24).strokeBorder(.white.opacity(0.14), lineWidth: 0.5))
         .contentShape(RoundedRectangle(cornerRadius: 24))

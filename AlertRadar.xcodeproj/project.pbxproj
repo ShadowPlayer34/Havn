@@ -11,10 +11,18 @@
 		000000000000000000000052 /* ThreatActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000042 /* ThreatActivityAttributes.swift */; };
 		000000000000000000000053 /* ThreatSharedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000043 /* ThreatSharedViews.swift */; };
 		000000000000000000000054 /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000044 /* WidgetSnapshot.swift */; };
+		000000000000000000000055 /* ThreatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000045 /* ThreatAPI.swift */; };
+		000000000000000000000056 /* KyivDistrict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000046 /* KyivDistrict.swift */; };
+		000000000000000000000057 /* DistrictAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000047 /* DistrictAlert.swift */; };
+		000000000000000000000058 /* DistrictAlertViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000048 /* DistrictAlertViews.swift */; };
 		000000000000000000000061 /* VectorAlertTokens.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000041 /* VectorAlertTokens.swift */; };
 		000000000000000000000062 /* ThreatActivityAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000042 /* ThreatActivityAttributes.swift */; };
 		000000000000000000000063 /* ThreatSharedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000043 /* ThreatSharedViews.swift */; };
 		000000000000000000000064 /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000044 /* WidgetSnapshot.swift */; };
+		000000000000000000000065 /* ThreatAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000045 /* ThreatAPI.swift */; };
+		000000000000000000000066 /* KyivDistrict.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000046 /* KyivDistrict.swift */; };
+		000000000000000000000067 /* DistrictAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000047 /* DistrictAlert.swift */; };
+		000000000000000000000068 /* DistrictAlertViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000000000000000000000048 /* DistrictAlertViews.swift */; };
 		000000000000000160000000 /* AlertRadarWidgets.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 000000000000000000000220 /* AlertRadarWidgets.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -45,6 +53,10 @@
 		000000000000000000000042 /* ThreatActivityAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatActivityAttributes.swift; sourceTree = "<group>"; };
 		000000000000000000000043 /* ThreatSharedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatSharedViews.swift; sourceTree = "<group>"; };
 		000000000000000000000044 /* WidgetSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSnapshot.swift; sourceTree = "<group>"; };
+		000000000000000000000045 /* ThreatAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreatAPI.swift; sourceTree = "<group>"; };
+		000000000000000000000046 /* KyivDistrict.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KyivDistrict.swift; sourceTree = "<group>"; };
+		000000000000000000000047 /* DistrictAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictAlert.swift; sourceTree = "<group>"; };
+		000000000000000000000048 /* DistrictAlertViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistrictAlertViews.swift; sourceTree = "<group>"; };
 		000000000000000000000120 /* AlertRadar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlertRadar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		000000000000000000000220 /* AlertRadarWidgets.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AlertRadarWidgets.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -53,6 +65,7 @@
 		02D2C8D3303A2EE6007E2EC6 /* Exceptions for "AlertRadar" folder in "AlertRadarWidgets" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Models/ThreatZone.swift,
 				Resources/AlertRadarIcon.icon,
 			);
 			target = 000000000000000200000000 /* AlertRadarWidgets */;
@@ -115,6 +128,10 @@
 				000000000000000000000042 /* ThreatActivityAttributes.swift */,
 				000000000000000000000043 /* ThreatSharedViews.swift */,
 				000000000000000000000044 /* WidgetSnapshot.swift */,
+				000000000000000000000045 /* ThreatAPI.swift */,
+				000000000000000000000046 /* KyivDistrict.swift */,
+				000000000000000000000047 /* DistrictAlert.swift */,
+				000000000000000000000048 /* DistrictAlertViews.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -222,6 +239,10 @@
 				000000000000000000000052 /* ThreatActivityAttributes.swift in Sources */,
 				000000000000000000000053 /* ThreatSharedViews.swift in Sources */,
 				000000000000000000000054 /* WidgetSnapshot.swift in Sources */,
+				000000000000000000000055 /* ThreatAPI.swift in Sources */,
+				000000000000000000000056 /* KyivDistrict.swift in Sources */,
+				000000000000000000000057 /* DistrictAlert.swift in Sources */,
+				000000000000000000000058 /* DistrictAlertViews.swift in Sources */,
 			);
 		};
 		000000000000000220000000 /* Sources */ = {
@@ -231,6 +252,10 @@
 				000000000000000000000062 /* ThreatActivityAttributes.swift in Sources */,
 				000000000000000000000063 /* ThreatSharedViews.swift in Sources */,
 				000000000000000000000064 /* WidgetSnapshot.swift in Sources */,
+				000000000000000000000065 /* ThreatAPI.swift in Sources */,
+				000000000000000000000066 /* KyivDistrict.swift in Sources */,
+				000000000000000000000067 /* DistrictAlert.swift in Sources */,
+				000000000000000000000068 /* DistrictAlertViews.swift in Sources */,
 			);
 		};
 /* End PBXSourcesBuildPhase section */

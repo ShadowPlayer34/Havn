@@ -1,0 +1,333 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%.1f km" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%.1f км"
+          }
+        }
+      }
+    },
+    "%lld" : {
+
+    },
+    "%lld m" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld м"
+          }
+        }
+      }
+    },
+    "%lld min walk" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld хв пішки"
+          }
+        }
+      }
+    },
+    "%lld min walk · %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld хв пішки · %@"
+          }
+        }
+      }
+    },
+    "%lld–%lld m" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld–%lld хв"
+          }
+        }
+      }
+    },
+    "%lld–%lld min" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld–%lld хв"
+          }
+        }
+      }
+    },
+    "%lld–%lldm" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld–%2$lldm"
+          }
+        }
+      }
+    },
+    "How exposed your precise location is to the current risk area." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наскільки ваше точне місце наближене до поточної зони ризику."
+          }
+        }
+      }
+    },
+    "Inside risk area · 2–6 min" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Усередині зони ризику · 2–6 хв"
+          }
+        }
+      }
+    },
+    "Location Safety" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Безпека місця"
+          }
+        }
+      }
+    },
+    "Location Safety: %lld%%" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Безпека місця: %lld%%"
+          }
+        }
+      }
+    },
+    "measured %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "виміряно %@"
+          }
+        }
+      }
+    },
+    "Nearest Shelter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Найближче укриття"
+          }
+        }
+      }
+    },
+    "NEAREST SHELTER" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "НАЙБЛИЖЧЕ УКРИТТЯ"
+          }
+        }
+      }
+    },
+    "No data yet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Даних поки немає"
+          }
+        }
+      }
+    },
+    "now" : {
+
+    },
+    "open 24/7" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "відчинено цілодобово"
+          }
+        }
+      }
+    },
+    "Open AlertRadar once" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрийте AlertRadar один раз"
+          }
+        }
+      }
+    },
+    "Open AlertRadar once so it can find the register entries near you." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрийте AlertRadar один раз, щоб він знайшов записи реєстру поряд із вами."
+          }
+        }
+      }
+    },
+    "Outside main risk area" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поза основною зоною ризику"
+          }
+        }
+      }
+    },
+    "restricted" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "обмежений доступ"
+          }
+        }
+      }
+    },
+    "Risk area edge · widening" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Межа зони ризику · розширюється"
+          }
+        }
+      }
+    },
+    "Risk Area: %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зона ризику: %@"
+          }
+        }
+      }
+    },
+    "SAFE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "БЕЗПЕЧНО"
+          }
+        }
+      }
+    },
+    "SEEK COVER" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В УКРИТТЯ"
+          }
+        }
+      }
+    },
+    "The closest safe haven, ranked by walking time." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Найближче безпечне місце за часом ходьби."
+          }
+        }
+      }
+    },
+    "Threat status" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Статус загрози"
+          }
+        }
+      }
+    },
+    "to sector" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "до сектора"
+          }
+        }
+      }
+    },
+    "updated %@ ago" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "оновлено %@ тому"
+          }
+        }
+      }
+    },
+    "VectorAlert" : {
+
+    },
+    "WATCH" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "УВАГА"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

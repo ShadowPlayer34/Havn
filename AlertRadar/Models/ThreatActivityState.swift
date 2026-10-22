@@ -23,7 +23,7 @@ extension ThreatActivityAttributes.ContentState {
             threat: Self.threatLine(zone: zone, response: response),
             // Without a check we do not get to say "clear" — that is the one thing this
             // app must never claim on a guess.
-            status: response?.riskLevel.localizedSummary ?? "Waiting for a sector check.",
+            status: response?.riskLevel.localizedSummary ?? String(localized: "Waiting for a sector check."),
             arrival: ThreatActivityAttributes.Arrival(zone: zone, now: now),
             // The design's "Location Safety: 88%" had nothing behind it and no endpoint
             // answers it, so nothing is sent and the badge stays off the screen.
@@ -38,12 +38,12 @@ extension ThreatActivityAttributes.ContentState {
             let subject = zone.count > 1
                 ? "\(zone.count) \(zone.threatType.localizedName)"
                 : zone.threatType.localizedName
-            return "\(subject) · area estimate"
+            return String(localized: "\(subject) · area estimate")
         }
         if let type = response?.threatType {
-            return "\(ThreatKind(raw: type).localizedName) · area estimate"
+            return String(localized: "\(ThreatKind(raw: type).localizedName) · area estimate")
         }
-        return "No active threat"
+        return String(localized: "No active threat")
     }
 }
 

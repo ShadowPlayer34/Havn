@@ -60,30 +60,30 @@ extension FeedItem {
     static let all: [FeedItem] = [
         FeedItem(
             time: "14:32:07", tag: .confirmed, reliability: 96,
-            source: "UA Air Force · official channel",
-            coords: "50.4021° N, 30.6520° E", merged: "7 posts · 3 channels",
-            summary: "Group of 4 Shahed-136 crossed the Kyiv region border from the south-east on a north-west heading.",
+            source: String(localized: "UA Air Force · official channel"),
+            coords: "50.4021° N, 30.6520° E", merged: String(localized: "7 posts · 3 channels"),
+            summary: String(localized: "Group of 4 Shahed-136 crossed the Kyiv region border from the south-east on a north-west heading."),
             category: .confirmed
         ),
         FeedItem(
             time: "14:28:51", tag: .corroborated, reliability: 82,
-            source: "Cross-checked · 3 independent observers",
-            coords: "49.9835° N, 30.9114° E", merged: "12 posts · 5 channels",
-            summary: "Ground observation reports engine noise moving north-west. Matches radar track VT-114.",
+            source: String(localized: "Cross-checked · 3 independent observers"),
+            coords: "49.9835° N, 30.9114° E", merged: String(localized: "12 posts · 5 channels"),
+            summary: String(localized: "Ground observation reports engine noise moving north-west. Matches radar track VT-114."),
             category: .confirmed
         ),
         FeedItem(
             time: "14:21:03", tag: .unverified, reliability: 61,
-            source: "Regional administration repost",
-            coords: "50.2500° N, 30.8000° E", merged: "4 posts · 2 channels",
-            summary: "Air defence reported active over Boryspil district. No debris reports received so far.",
+            source: String(localized: "Regional administration repost"),
+            coords: "50.2500° N, 30.8000° E", merged: String(localized: "4 posts · 2 channels"),
+            summary: String(localized: "Air defence reported active over Boryspil district. No debris reports received so far."),
             category: .airDefence
         ),
         FeedItem(
             time: "14:09:40", tag: .cleared, reliability: 91,
-            source: "Sensor mesh · acoustic node 118",
-            coords: "50.4501° N, 30.5234° E", merged: "2 posts · 1 channel",
-            summary: "Acoustic baseline returned to normal for Solomianskyi district. Previous alert closed.",
+            source: String(localized: "Sensor mesh · acoustic node 118"),
+            coords: "50.4501° N, 30.5234° E", merged: String(localized: "2 posts · 1 channel"),
+            summary: String(localized: "Acoustic baseline returned to normal for Solomianskyi district. Previous alert closed."),
             category: .cleared
         )
     ]

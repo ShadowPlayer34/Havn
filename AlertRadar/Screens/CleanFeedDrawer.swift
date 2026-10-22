@@ -86,7 +86,7 @@ struct CleanFeedDrawer: View {
                 Button {
                     model.filter = category
                 } label: {
-                    Text(category.rawValue)
+                    Text(LocalizedStringKey(category.rawValue))
                         .font(VAFont.display(12))
                         .foregroundStyle(selected ? .white : VA.secondary(0.5))
                         .padding(.horizontal, 13)
@@ -148,7 +148,7 @@ struct FeedCard: View {
         Button(action: toggle) {
             VStack(alignment: .leading, spacing: 10) {
                 HStack(spacing: 8) {
-                    Text(item.tag.rawValue)
+                    Text(LocalizedStringKey(item.tag.rawValue))
                         .font(VAFont.mono(9.5, .semibold))
                         .tracking(em: 0.08, size: 9.5)
                         .foregroundStyle(item.tag.foreground)
@@ -214,7 +214,7 @@ struct FeedCard: View {
 
     private func detailRow<Value: View>(_ label: String, @ViewBuilder value: () -> Value) -> some View {
         GridRow {
-            Text(label)
+            Text(LocalizedStringKey(label))
                 .font(VAFont.mono(10, .semibold))
                 .tracking(em: 0.06, size: 10)
                 .foregroundStyle(VA.secondary(0.35))

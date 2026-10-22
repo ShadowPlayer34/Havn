@@ -101,7 +101,7 @@ struct SafetyProtocolSheet: View {
 
     private func statCard(title: String, value: String, valueColor: Color, fill: Color, stroke: Color) -> some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text(title)
+            Text(LocalizedStringKey(title))
                 .font(VAFont.display(9.5))
                 .tracking(em: 0.1, size: 9.5)
                 .foregroundStyle(.white.opacity(0.55))
@@ -128,7 +128,7 @@ struct SafetyProtocolSheet: View {
                 protocolRow(
                     color: VA.green,
                     text: "\(nearest.shortLabel) — \(nearest.distanceLabel)",
-                    detail: "\(nearest.walkMinutes) min walk"
+                    detail: String(localized: "\(nearest.walkMinutes) min walk")
                 )
             } else {
                 protocolRow(color: VA.secondary(0.6), text: "No shelter data for this area", detail: nil)
@@ -151,12 +151,12 @@ struct SafetyProtocolSheet: View {
             RoundedRectangle(cornerRadius: 3)
                 .fill(color)
                 .frame(width: 10, height: 10)
-            Text(text)
+            Text(LocalizedStringKey(text))
                 .font(VAFont.body)
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity, alignment: .leading)
             if let detail {
-                Text(detail)
+                Text(LocalizedStringKey(detail))
                     .font(VAFont.display(13, .medium))
                     .foregroundStyle(.white.opacity(0.5))
             }

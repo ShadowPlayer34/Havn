@@ -141,15 +141,15 @@ struct NearestShelterWidgetView: View {
 
     /// "240 m" / "1.4 km" — the same wording the app uses for the same number.
     private func distanceLabel(_ metres: Int) -> String {
-        metres < 1_000 ? "\(metres) m" : String(format: "%.1f km", Double(metres) / 1_000)
+        metres < 1_000 ? String(localized: "\(metres) m") : String(format: String(localized: "%.1f km"), Double(metres) / 1_000)
     }
 
     /// Says when the walk was measured rather than pretending it was measured now.
     private func detail(for shelter: WidgetSnapshot.NearestShelter) -> String {
         if entry.isStale, let capturedAt = entry.capturedAt {
-            return "measured \(capturedAt.formatted(.relative(presentation: .numeric)))"
+            return String(localized: "measured \(capturedAt.formatted(.relative(presentation: .numeric)))")
         }
-        return "\(shelter.walkMinutes) min walk · \(opening(for: shelter))"
+        return String(localized: "\(shelter.walkMinutes) min walk · \(opening(for: shelter))")
     }
 
     /// The register's hours field is free text: sometimes "08:00-20:00", sometimes a
@@ -157,8 +157,8 @@ struct NearestShelterWidgetView: View {
     /// becomes a short flag instead — cut off mid-word it reads as noise, and calling it
     /// open would be a lie about a door that is locked to you.
     private func opening(for shelter: WidgetSnapshot.NearestShelter) -> String {
-        if shelter.isAlwaysOpen { return "open 24/7" }
-        guard let hours = shelter.hours, hours.count <= 20 else { return "restricted" }
+        if shelter.isAlwaysOpen { return String(localized: "open 24/7") }
+        guard let hours = shelter.hours, hours.count <= 20 else { return String(localized: "restricted") }
         return hours
     }
 }

@@ -128,9 +128,9 @@ struct ThreatDashboardView: View {
             return Status(risk: response.riskLevel)
         }
         if viewModel.errorMessage != nil {
-            return Status(unknownSummary: "No answer from the threat service yet")
+            return Status(unknownSummary: String(localized: "No answer from the threat service yet"))
         }
-        return Status(unknownSummary: "Checking your sector…")
+        return Status(unknownSummary: String(localized: "Checking your sector…"))
     }
 
     private var statusCard: some View {
@@ -183,7 +183,7 @@ struct ThreatDashboardView: View {
     }
 
     private func tag(_ text: String, color: Color) -> some View {
-        Text(text)
+        Text(LocalizedStringKey(text))
             .font(VAFont.mono(9.5, .semibold))
             .tracking(em: 0.08, size: 9.5)
             .foregroundStyle(color)
@@ -211,7 +211,7 @@ struct ThreatDashboardView: View {
                 divider
                 detailRow(
                     "ARRIVAL",
-                    value: "\(minutes) min",
+                    value: String(localized: "\(minutes) min"),
                     accent: viewModel.riskLevel.accent,
                     rounded: true
                 )
@@ -246,7 +246,7 @@ struct ThreatDashboardView: View {
         mono: Bool = false
     ) -> some View {
         HStack(spacing: 12) {
-            Text(label)
+            Text(LocalizedStringKey(label))
                 .font(VAFont.mono(10, .semibold))
                 .tracking(em: 0.08, size: 10)
                 .foregroundStyle(VA.secondary(0.4))

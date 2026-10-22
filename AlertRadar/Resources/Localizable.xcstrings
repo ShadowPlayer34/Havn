@@ -1,0 +1,3658 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "—" : {},
+    "%.1f km" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%.1f км"
+          }
+        }
+      }
+    },
+    "%@ · %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ · %2$@"
+          }
+        }
+      }
+    },
+    "%@ · %lld min" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ · %lld хв"
+          }
+        }
+      }
+    },
+    "%@ · area estimate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ · орієнтовна зона"
+          }
+        }
+      }
+    },
+    "%@ • Risk" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ • Ризик"
+          }
+        }
+      }
+    },
+    "%@ risk in sector" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ризик у секторі: %@"
+          }
+        }
+      }
+    },
+    "%lld" : {},
+    "%lld active threats on the map" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld active threat on the map"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld active threats on the map"
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld активні загрози на мапі"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld активних загроз на мапі"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld активна загроза на мапі"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld активних загроз на мапі"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld contacts" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld contact"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld contacts"
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld контакти"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld контактів"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld контакт"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld контактів"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld districts" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld district"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld districts"
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld райони"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld районів"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld район"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld районів"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld km" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld км"
+          }
+        }
+      }
+    },
+    "%lld m" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld м"
+          }
+        }
+      }
+    },
+    "%lld min" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld хв"
+          }
+        }
+      }
+    },
+    "%lld min walk" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld хв пішки"
+          }
+        }
+      }
+    },
+    "%lld min walk · %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld хв пішки · %@"
+          }
+        }
+      }
+    },
+    "%lld of %lld · de-duplicated" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld з %lld · без дублікатів"
+          }
+        }
+      }
+    },
+    "%lld people reported a problem with this entry." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld person reported a problem with this entry."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld people reported a problem with this entry."
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людини повідомили про проблему із цим записом."
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людей повідомили про проблему із цим записом."
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людина повідомила про проблему із цим записом."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людей повідомили про проблему із цим записом."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld steps · works offline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld step · works offline"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld steps · works offline"
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld кроки · працює офлайн"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld кроків · працює офлайн"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld крок · працює офлайн"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld кроків · працює офлайн"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld–%lld m" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld–%lld хв"
+          }
+        }
+      }
+    },
+    "%lld–%lld min" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld–%lld хв"
+          }
+        }
+      }
+    },
+    "%lld–%lldm" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$lld–%2$lldm"
+          }
+        }
+      }
+    },
+    "%lld%%" : {},
+    "%lld%% confidence" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld%% впевненості"
+          }
+        }
+      }
+    },
+    "1 Active Threat · %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1 активна загроза · %@"
+          }
+        }
+      }
+    },
+    "2 litres of water per person, food for 2–3 days." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 літри води на людину, їжа на 2–3 дні."
+          }
+        }
+      }
+    },
+    "2 posts · 1 channel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "2 дописи · 1 канал"
+          }
+        }
+      }
+    },
+    "3 min walk · open" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "3 хв пішки · відчинено"
+          }
+        }
+      }
+    },
+    "4 posts · 2 channels" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "4 дописи · 2 канали"
+          }
+        }
+      }
+    },
+    "7 posts · 3 channels" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "7 дописів · 3 канали"
+          }
+        }
+      }
+    },
+    "9:41" : {},
+    "12 posts · 5 channels" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "12 дописів · 5 каналів"
+          }
+        }
+      }
+    },
+    "14:32" : {},
+    "240 m" : {},
+    "A curb, ditch or wall between you and the blast. Stay away from windows." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бордюр, рів чи стіна між вами та вибухом. Тримайтеся подалі від вікон."
+          }
+        }
+      }
+    },
+    "A whistle helps rescuers find you." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Свисток допоможе рятувальникам вас знайти."
+          }
+        }
+      }
+    },
+    "Acoustic baseline returned to normal for Solomianskyi district. Previous alert closed." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Акустичний фон у Солом'янському районі повернувся до норми. Попередню тривогу закрито."
+          }
+        }
+      }
+    },
+    "Add emergency contact" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Додати екстреного контакта"
+          }
+        }
+      }
+    },
+    "ago" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "тому"
+          }
+        }
+      }
+    },
+    "Air defence" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ППО"
+          }
+        }
+      }
+    },
+    "Air defence reported active over Boryspil district. No debris reports received so far." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повідомляють про роботу ППО над Бориспільським районом. Повідомлень про уламки поки немає."
+          }
+        }
+      }
+    },
+    "Air raid shelter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Укриття від повітряної тривоги"
+          }
+        }
+      }
+    },
+    "Alert active in this sector." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "У цьому секторі діє тривога."
+          }
+        }
+      }
+    },
+    "All" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Усі"
+          }
+        }
+      }
+    },
+    "always open" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "завжди відчинено"
+          }
+        }
+      }
+    },
+    "Ambulance" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Швидка допомога"
+          }
+        }
+      }
+    },
+    "APPROX. POSITION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ПРИБЛИЗНЕ МІСЦЕ"
+          }
+        }
+      }
+    },
+    "AREA" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ЗОНА"
+          }
+        }
+      }
+    },
+    "AREA STATUS" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "СТАТУС ЗОНИ"
+          }
+        }
+      }
+    },
+    "ARRIVAL" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ПРИБУТТЯ"
+          }
+        }
+      }
+    },
+    "ARRIVAL WINDOW" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВІКНО ПРИБУТТЯ"
+          }
+        }
+      }
+    },
+    "ARRIVAL WINDOW (TEST)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВІКНО ПРИБУТТЯ (ТЕСТ)"
+          }
+        }
+      }
+    },
+    "Awaiting sector check" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очікуємо перевірки сектора"
+          }
+        }
+      }
+    },
+    "Bomb shelter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Протибомбосховище"
+          }
+        }
+      }
+    },
+    "Bunker" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бункер"
+          }
+        }
+      }
+    },
+    "Call %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зателефонувати %@"
+          }
+        }
+      }
+    },
+    "Call %@, %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зателефонувати %@, %@"
+          }
+        }
+      }
+    },
+    "Call 101" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зателефонувати 101"
+          }
+        }
+      }
+    },
+    "Call 101 once outside" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зателефонуйте 101 надворі"
+          }
+        }
+      }
+    },
+    "Call 103" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зателефонуйте 103"
+          }
+        }
+      }
+    },
+    "Call 104 from outside" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зателефонуйте 104 з вулиці"
+          }
+        }
+      }
+    },
+    "Call 112, %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зателефонувати 112, %@"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скасувати"
+          }
+        }
+      }
+    },
+    "Centre on my location" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показати моє місце"
+          }
+        }
+      }
+    },
+    "Charged power bank, torch, spare batteries." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Заряджений павербанк, ліхтарик, запасні батарейки."
+          }
+        }
+      }
+    },
+    "Check doors before opening" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевіряйте двері перед відчиненням"
+          }
+        }
+      }
+    },
+    "Check expiry dates and charge levels once a month." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Раз на місяць перевіряйте терміни придатності та заряд."
+          }
+        }
+      }
+    },
+    "check hours" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "перевірте години"
+          }
+        }
+      }
+    },
+    "Checking sector…" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевіряємо сектор…"
+          }
+        }
+      }
+    },
+    "Checking your sector…" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевіряємо ваш сектор…"
+          }
+        }
+      }
+    },
+    "Choose emergency contacts" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оберіть екстрених контактів"
+          }
+        }
+      }
+    },
+    "CITY OVERVIEW" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ОГЛЯД МІСТА"
+          }
+        }
+      }
+    },
+    "Civil defence shelter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Укриття цивільного захисту"
+          }
+        }
+      }
+    },
+    "Clean Feed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чиста стрічка"
+          }
+        }
+      }
+    },
+    "Cleaner air is close to the floor. Cover your face with damp fabric." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чистіше повітря біля підлоги. Закрийте обличчя вологою тканиною."
+          }
+        }
+      }
+    },
+    "Cleared" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відбій"
+          }
+        }
+      }
+    },
+    "CLEARED" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВІДБІЙ"
+          }
+        }
+      }
+    },
+    "CONFIDENCE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВПЕВНЕНІСТЬ"
+          }
+        }
+      }
+    },
+    "Confirmed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Підтверджені"
+          }
+        }
+      }
+    },
+    "CONFIRMED" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ПІДТВЕРДЖЕНО"
+          }
+        }
+      }
+    },
+    "Connecting" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "З'єднання"
+          }
+        }
+      }
+    },
+    "Connects to any service" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "З'єднує з будь-якою службою"
+          }
+        }
+      }
+    },
+    "COORD" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "КООРД."
+          }
+        }
+      }
+    },
+    "CORROBORATED" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ПЕРЕВІРЕНО"
+          }
+        }
+      }
+    },
+    "Could not build the request URL." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося сформувати адресу запиту."
+          }
+        }
+      }
+    },
+    "Could not send that just now — it will need retrying." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зараз не вдалося надіслати — потрібно повторити."
+          }
+        }
+      }
+    },
+    "Cover your head with your hands, mouth slightly open to protect your eardrums." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закрийте голову руками, рот злегка відкрийте, щоб захистити барабанні перетинки."
+          }
+        }
+      }
+    },
+    "Cover your nose and mouth" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закрийте ніс і рот"
+          }
+        }
+      }
+    },
+    "Crime, suspicious objects" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Злочини, підозрілі предмети"
+          }
+        }
+      }
+    },
+    "Cross-checked · 3 independent observers" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перехресна перевірка · 3 незалежні спостерігачі"
+          }
+        }
+      }
+    },
+    "Damaged buildings after strikes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пошкоджені будівлі після ударів"
+          }
+        }
+      }
+    },
+    "DIRECT HIT" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ПРЯМЕ ВЛУЧАННЯ"
+          }
+        }
+      }
+    },
+    "Distance & Safety Protocol" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відстань і протокол безпеки"
+          }
+        }
+      }
+    },
+    "DISTRICT" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "РАЙОН"
+          }
+        }
+      }
+    },
+    "Do not call from inside the building." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не телефонуйте з приміщення."
+          }
+        }
+      }
+    },
+    "Do not film or approach the impact site. Debris and unexploded parts can be dangerous." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не знімайте й не наближайтеся до місця влучання. Уламки та невибухлі елементи небезпечні."
+          }
+        }
+      }
+    },
+    "Do not pull it free yourself after a long time trapped. Tell rescuers how long it has been." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не висмикуйте її самостійно після тривалого перебування під завалом. Скажіть рятувальникам, скільки минуло часу."
+          }
+        }
+      }
+    },
+    "Do not try to dig yourself out if debris above you is unstable. Wait for DSNS rescuers." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не намагайтеся вибратися самостійно, якщо уламки над вами нестійкі. Чекайте рятувальників ДСНС."
+          }
+        }
+      }
+    },
+    "Do not turn lights on or off, do not use a lighter." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вмикайте й не вимикайте світло, не користуйтеся запальничкою."
+          }
+        }
+      }
+    },
+    "Do not use a phone inside a room where gas is strong." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не користуйтеся телефоном у приміщенні з сильним запахом газу."
+          }
+        }
+      }
+    },
+    "Documents" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Документи"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Готово"
+          }
+        }
+      }
+    },
+    "Dual-purpose structure" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Споруда подвійного призначення"
+          }
+        }
+      }
+    },
+    "DYNAMIC ISLAND · COMPACT" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DYNAMIC ISLAND · КОМПАКТНИЙ"
+          }
+        }
+      }
+    },
+    "DYNAMIC ISLAND · EXPANDED" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DYNAMIC ISLAND · РОЗГОРНУТИЙ"
+          }
+        }
+      }
+    },
+    "earliest arrival" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "найраніше прибуття"
+          }
+        }
+      }
+    },
+    "Emergency" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Екстрені служби"
+          }
+        }
+      }
+    },
+    "Emergency Guides" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інструкції на випадок небезпеки"
+          }
+        }
+      }
+    },
+    "Emergency Services" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Екстрені служби"
+          }
+        }
+      }
+    },
+    "Emergency shelter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аварійне укриття"
+          }
+        }
+      }
+    },
+    "End Live Activity" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завершити Live Activity"
+          }
+        }
+      }
+    },
+    "Estimated Risk Area (OSINT-based)" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Орієнтовна зона ризику (на основі OSINT)"
+          }
+        }
+      }
+    },
+    "Explosion nearby" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вибух поблизу"
+          }
+        }
+      }
+    },
+    "Feed" : {},
+    "Fire and smoke" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пожежа й дим"
+          }
+        }
+      }
+    },
+    "Fire, rubble, rescue" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пожежа, завали, порятунок"
+          }
+        }
+      }
+    },
+    "First-aid kit, tourniquet, personal medicines for a week." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Аптечка, джгут, особисті ліки на тиждень."
+          }
+        }
+      }
+    },
+    "Free · no SIM needed for 112" : {},
+    "Gas leaks" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Витоки газу"
+          }
+        }
+      }
+    },
+    "Gas service" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Газова служба"
+          }
+        }
+      }
+    },
+    "Gas smell" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запах газу"
+          }
+        }
+      }
+    },
+    "Give the address, floor and whether anyone is still inside." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Назвіть адресу, поверх і чи є хтось усередині."
+          }
+        }
+      }
+    },
+    "Go to the nearest shelter, not toward the impact site." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Йдіть до найближчого укриття, а не до місця влучання."
+          }
+        }
+      }
+    },
+    "Go-bag and shelter kit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тривожна валіза й набір для укриття"
+          }
+        }
+      }
+    },
+    "Ground observation reports engine noise moving north-west. Matches radar track VT-114." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наземне спостереження фіксує шум двигунів, що рухається на північний захід. Збігається з радіолокаційним треком VT-114."
+          }
+        }
+      }
+    },
+    "Group of 4 Shahed-136 crossed the Kyiv region border from the south-east on a north-west heading." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Група з 4 «Шахедів-136» перетнула межу Київщини з південного сходу курсом на північний захід."
+          }
+        }
+      }
+    },
+    "Guides" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Інструкції"
+          }
+        }
+      }
+    },
+    "HAVENS" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "УКРИТТЯ"
+          }
+        }
+      }
+    },
+    "Heavy bleeding can be fatal within minutes. Press first, then call." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сильна кровотеча може вбити за лічені хвилини. Спершу притисніть, потім телефонуйте."
+          }
+        }
+      }
+    },
+    "HOURS" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ГОДИНИ"
+          }
+        }
+      }
+    },
+    "How exposed your precise location is to the current risk area." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наскільки ваше точне місце наближене до поточної зони ризику."
+          }
+        }
+      }
+    },
+    "Hype and unverified reposts filtered: 41" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відфільтровано хайп і неперевірені репости: 41"
+          }
+        }
+      }
+    },
+    "I need help." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мені потрібна допомога."
+          }
+        }
+      }
+    },
+    "I need help. My location: %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мені потрібна допомога. Моє місце: %@"
+          }
+        }
+      }
+    },
+    "I'm safe." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я в безпеці."
+          }
+        }
+      }
+    },
+    "I'm safe. My location: %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я в безпеці. Моє місце: %@"
+          }
+        }
+      }
+    },
+    "If a limb is pinned, wait" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо кінцівку затиснуло — чекайте"
+          }
+        }
+      }
+    },
+    "If the handle is hot, use another way out." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо ручка гаряча, шукайте інший вихід."
+          }
+        }
+      }
+    },
+    "If you cannot leave, seal the door gaps with wet cloth and signal from a window." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо вийти неможливо, щільно закрийте щілини дверей мокрою тканиною та подайте сигнал з вікна."
+          }
+        }
+      }
+    },
+    "If you hear a launch or explosion and are not in a shelter, drop immediately." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Якщо ви почули пуск чи вибух і не в укритті — негайно падайте на землю."
+          }
+        }
+      }
+    },
+    "IN RISK ZONE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "У ЗОНІ РИЗИКУ"
+          }
+        }
+      }
+    },
+    "in the risk area" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "у зоні ризику"
+          }
+        }
+      }
+    },
+    "in your district" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "у вашому районі"
+          }
+        }
+      }
+    },
+    "Injuries, medical help" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Травми, медична допомога"
+          }
+        }
+      }
+    },
+    "Inside risk area · 2–6 min" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Усередині зони ризику · 2–6 хв"
+          }
+        }
+      }
+    },
+    "It's not at this spot" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Його немає в цьому місці"
+          }
+        }
+      }
+    },
+    "Keep a bag ready by the door." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тримайте зібрану сумку біля дверей."
+          }
+        }
+      }
+    },
+    "Keep the person warm and lying down until help arrives." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тримайте людину в теплі та лежачи до приїзду допомоги."
+          }
+        }
+      }
+    },
+    "KYIV · CITY LINES" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "КИЇВ · МІСЬКІ ЛІНІЇ"
+          }
+        }
+      }
+    },
+    "Kyiv city contact centre" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Контакт-центр Києва"
+          }
+        }
+      }
+    },
+    "Kyiv city register" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Реєстр міста Києва"
+          }
+        }
+      }
+    },
+    "Kyiv emergency hotline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Гаряча лінія Києва"
+          }
+        }
+      }
+    },
+    "Kyiv oblast register · position approximate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Реєстр Київської області · розташування приблизне"
+          }
+        }
+      }
+    },
+    "Kyiv Region — Area Status: Moderate Risk Zone." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Київська область — статус зони: помірний ризик."
+          }
+        }
+      }
+    },
+    "Last updated" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оновлено"
+          }
+        }
+      }
+    },
+    "Leave the building" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Залиште будівлю"
+          }
+        }
+      }
+    },
+    "Lie face down" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лягайте обличчям донизу"
+          }
+        }
+      }
+    },
+    "Lifts can stop when power goes out." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ліфти можуть зупинитися, коли зникне світло."
+          }
+        }
+      }
+    },
+    "Limited" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обмежено"
+          }
+        }
+      }
+    },
+    "Live" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наживо"
+          }
+        }
+      }
+    },
+    "Live Activities are turned off for AlertRadar in Settings." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Live Activities для AlertRadar вимкнено в Налаштуваннях."
+          }
+        }
+      }
+    },
+    "Live Activity & Lock Screen" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Live Activity і екран блокування"
+          }
+        }
+      }
+    },
+    "Loading threat zones…" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантажуємо зони загроз…"
+          }
+        }
+      }
+    },
+    "LOCAL ESTIMATE · NO SERVER GEOMETRY" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ЛОКАЛЬНА ОЦІНКА · БЕЗ ГЕОМЕТРІЇ З СЕРВЕРА"
+          }
+        }
+      }
+    },
+    "Location access is off" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доступ до геолокації вимкнено"
+          }
+        }
+      }
+    },
+    "Location access is off, so no sector can be checked. Enable it in Settings." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Доступ до геолокації вимкнено, тож сектор перевірити неможливо. Увімкніть його в Налаштуваннях."
+          }
+        }
+      }
+    },
+    "Location is off, so your own sector cannot be checked. The map still shows every active zone." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Геолокацію вимкнено, тож власний сектор перевірити неможливо. Мапа все одно показує всі активні зони."
+          }
+        }
+      }
+    },
+    "Location Safety" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Безпека місця"
+          }
+        }
+      }
+    },
+    "Location Safety: %lld%%" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Безпека місця: %lld%%"
+          }
+        }
+      }
+    },
+    "Location unavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Місце недоступне"
+          }
+        }
+      }
+    },
+    "LOCK SCREEN · LIVE ACTIVITY + INTERACTIVE WIDGET" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ЕКРАН БЛОКУВАННЯ · LIVE ACTIVITY + ІНТЕРАКТИВНИЙ ВІДЖЕТ"
+          }
+        }
+      }
+    },
+    "Lock the device to see it, or press and hold the Dynamic Island." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Заблокуйте пристрій, щоб побачити, або затисніть Dynamic Island."
+          }
+        }
+      }
+    },
+    "Locked — I couldn't get in" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зачинено — я не зміг(ла) зайти"
+          }
+        }
+      }
+    },
+    "Malformed response." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Некоректна відповідь."
+          }
+        }
+      }
+    },
+    "Map" : {},
+    "Map Legend" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Легенда мапи"
+          }
+        }
+      }
+    },
+    "measured %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "виміряно %@"
+          }
+        }
+      }
+    },
+    "Medical" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Медичне"
+          }
+        }
+      }
+    },
+    "MERGED" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ОБ'ЄДНАНО"
+          }
+        }
+      }
+    },
+    "Messages unavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повідомлення недоступні"
+          }
+        }
+      }
+    },
+    "Metro\nVokzalna" : {},
+    "Move slowly. Sudden movement can shift debris above you." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рухайтеся повільно. Різкий рух може зсунути уламки над вами."
+          }
+        }
+      }
+    },
+    "Move to shelter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Прямуйте в укриття"
+          }
+        }
+      }
+    },
+    "MY CONTACTS" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "МОЇ КОНТАКТИ"
+          }
+        }
+      }
+    },
+    "Nearest Shelter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Найближче укриття"
+          }
+        }
+      }
+    },
+    "NEAREST SHELTER" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "НАЙБЛИЖЧЕ УКРИТТЯ"
+          }
+        }
+      }
+    },
+    "Never loosen a tourniquet once applied. Medics will remove it." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ніколи не послаблюйте накладений джгут. Його знімуть медики."
+          }
+        }
+      }
+    },
+    "No" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ні"
+          }
+        }
+      }
+    },
+    "No active threat" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Активних загроз немає"
+          }
+        }
+      }
+    },
+    "No active threat in sector" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Активних загроз у секторі немає"
+          }
+        }
+      }
+    },
+    "No active threats" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Активних загроз немає"
+          }
+        }
+      }
+    },
+    "No answer from the threat service yet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сервіс загроз ще не відповів"
+          }
+        }
+      }
+    },
+    "No data yet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Даних поки немає"
+          }
+        }
+      }
+    },
+    "No location fix — name the nearest street or landmark." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Місце не визначено — назвіть найближчу вулицю чи орієнтир."
+          }
+        }
+      }
+    },
+    "No matches or lighters" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Жодних сірників і запальничок"
+          }
+        }
+      }
+    },
+    "No network connection." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немає мережевого з'єднання."
+          }
+        }
+      }
+    },
+    "No sector data" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немає даних сектора"
+          }
+        }
+      }
+    },
+    "No sector reading yet — the activity would have nothing to show." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Даних про сектор ще немає — Live Activity нічого було б показати."
+          }
+        }
+      }
+    },
+    "No shelter data for this area" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Немає даних про укриття для цієї зони"
+          }
+        }
+      }
+    },
+    "No switches or flames" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Жодних вимикачів і вогню"
+          }
+        }
+      }
+    },
+    "NOTE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ПРИМІТКА"
+          }
+        }
+      }
+    },
+    "Note the time" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запишіть час"
+          }
+        }
+      }
+    },
+    "Nothing inbound." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загроз не наближається."
+          }
+        }
+      }
+    },
+    "Nothing inbound. Nearest shelter is %@ away." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загроз не наближається. Найближче укриття — за %@."
+          }
+        }
+      }
+    },
+    "Notify 2 contacts on arrival" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повідомити 2 контактів про прибуття"
+          }
+        }
+      }
+    },
+    "now" : {},
+    "Offline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Офлайн"
+          }
+        }
+      }
+    },
+    "OK" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "OK"
+          }
+        }
+      }
+    },
+    "On lock screen" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "На екрані блокування"
+          }
+        }
+      }
+    },
+    "open 24/7" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "відчинено цілодобово"
+          }
+        }
+      }
+    },
+    "Open AlertRadar once" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрийте AlertRadar один раз"
+          }
+        }
+      }
+    },
+    "Open AlertRadar once so it can find the register entries near you." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрийте AlertRadar один раз, щоб він знайшов записи реєстру поряд із вами."
+          }
+        }
+      }
+    },
+    "Open Walking Route" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрити пішохідний маршрут"
+          }
+        }
+      }
+    },
+    "Open windows" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відчиніть вікна"
+          }
+        }
+      }
+    },
+    "ORIGIN" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ЗВІДКИ"
+          }
+        }
+      }
+    },
+    "Outside main risk area" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поза основною зоною ризику"
+          }
+        }
+      }
+    },
+    "Passport, ID and copies in a waterproof pouch." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Паспорт, ID та копії у водонепроникному чохлі."
+          }
+        }
+      }
+    },
+    "PHONE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ТЕЛЕФОН"
+          }
+        }
+      }
+    },
+    "Place it 5–7 cm above the wound, tighten until bleeding stops." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Накладіть на 5–7 см вище рани, затягніть, доки кровотеча не зупиниться."
+          }
+        }
+      }
+    },
+    "Police" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поліція"
+          }
+        }
+      }
+    },
+    "Power and light" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Живлення та світло"
+          }
+        }
+      }
+    },
+    "Precise Location Safety: 88%" : {},
+    "Press hard on the wound" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сильно притисніть рану"
+          }
+        }
+      }
+    },
+    "Radiation shelter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Протирадіаційне укриття"
+          }
+        }
+      }
+    },
+    "REGION" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ОБЛАСТЬ"
+          }
+        }
+      }
+    },
+    "Regional administration repost" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Репост обласної адміністрації"
+          }
+        }
+      }
+    },
+    "Remove" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити"
+          }
+        }
+      }
+    },
+    "Report a problem" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повідомити про проблему"
+          }
+        }
+      }
+    },
+    "Rescue · DSNS" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рятувальники · ДСНС"
+          }
+        }
+      }
+    },
+    "Rescuers search by sound first. Your job is to stay still, breathe clean air and be heard." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Рятувальники шукають передусім за звуком. Ваше завдання — не рухатися, дихати чистим повітрям і дати себе почути."
+          }
+        }
+      }
+    },
+    "restricted" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "обмежений доступ"
+          }
+        }
+      }
+    },
+    "RISK AREA" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ЗОНА РИЗИКУ"
+          }
+        }
+      }
+    },
+    "Risk area edge · widening" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Межа зони ризику · розширюється"
+          }
+        }
+      }
+    },
+    "Risk Area: %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зона ризику: %@"
+          }
+        }
+      }
+    },
+    "Risk Area: Kyiv Region" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зона ризику: Київська область"
+          }
+        }
+      }
+    },
+    "SAFE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "БЕЗПЕЧНО"
+          }
+        }
+      }
+    },
+    "Saturday, 15 August" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Субота, 15 серпня"
+          }
+        }
+      }
+    },
+    "Save your battery" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Бережіть заряд"
+          }
+        }
+      }
+    },
+    "Saved offline" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Збережено офлайн"
+          }
+        }
+      }
+    },
+    "SECTOR" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "СЕКТОР"
+          }
+        }
+      }
+    },
+    "Sector check unavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевірка сектора недоступна"
+          }
+        }
+      }
+    },
+    "SEEK COVER" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В УКРИТТЯ"
+          }
+        }
+      }
+    },
+    "Send \"I'm safe\" + location" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Надіслати «Я в безпеці» + місце"
+          }
+        }
+      }
+    },
+    "Send an SMS with your location to 112 or a contact instead of calling. Turn on Low Power Mode." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Замість дзвінка надішліть SMS із місцезнаходженням на 112 або контакту. Увімкніть режим низького заряду."
+          }
+        }
+      }
+    },
+    "Send location" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Надіслати місце"
+          }
+        }
+      }
+    },
+    "Sending your report…" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Надсилаємо ваше повідомлення…"
+          }
+        }
+      }
+    },
+    "Sensor mesh · acoustic node 118" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мережа датчиків · акустичний вузол 118"
+          }
+        }
+      }
+    },
+    "Sent to %@ · %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Надіслано: %@ · %@"
+          }
+        }
+      }
+    },
+    "Severe bleeding" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сильна кровотеча"
+          }
+        }
+      }
+    },
+    "Shahed-136 · area estimate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шахед-136 · орієнтовна зона"
+          }
+        }
+      }
+    },
+    "Shelter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Укриття"
+          }
+        }
+      }
+    },
+    "Short steps you can follow without signal. Based on State Emergency Service (DSNS) guidance." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Короткі кроки, які можна виконати без зв'язку. Складено за рекомендаціями ДСНС."
+          }
+        }
+      }
+    },
+    "Simple shelter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Найпростіше укриття"
+          }
+        }
+      }
+    },
+    "Single emergency line" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Єдиний номер екстрених служб"
+          }
+        }
+      }
+    },
+    "Smoke is the main danger. Stay low and leave early." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Головна небезпека — дим. Пригніться та виходьте якомога раніше."
+          }
+        }
+      }
+    },
+    "Something else" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Щось інше"
+          }
+        }
+      }
+    },
+    "SOS" : {},
+    "SOURCE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ДЖЕРЕЛО"
+          }
+        }
+      }
+    },
+    "SOURCES" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ДЖЕРЕЛА"
+          }
+        }
+      }
+    },
+    "Stale · %lld min" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Застаріло · %lld хв"
+          }
+        }
+      }
+    },
+    "Start Live Activity" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запустити Live Activity"
+          }
+        }
+      }
+    },
+    "Stay down" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Залишайтеся на землі"
+          }
+        }
+      }
+    },
+    "Stay low" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пригніться"
+          }
+        }
+      }
+    },
+    "Stay still and check yourself" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не рухайтеся й огляньте себе"
+          }
+        }
+      }
+    },
+    "STEP-FREE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "БЕЗ СХОДІВ"
+          }
+        }
+      }
+    },
+    "STREET LEVEL" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "РІВЕНЬ ВУЛИЦІ"
+          }
+        }
+      }
+    },
+    "System Integrations" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Системні інтеграції"
+          }
+        }
+      }
+    },
+    "Tap and hold to expand" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Затисніть, щоб розгорнути"
+          }
+        }
+      }
+    },
+    "Tap on a pipe or wall" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стукайте по трубі чи стіні"
+          }
+        }
+      }
+    },
+    "Test: arrival estimate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тест: оцінка часу прибуття"
+          }
+        }
+      }
+    },
+    "Thanks — %lld people have now flagged this entry." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Thanks — %lld person has now flagged this entry."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Thanks — %lld people have now flagged this entry."
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Дякуємо — %lld людини вже позначили цей запис."
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Дякуємо — %lld людей уже позначили цей запис."
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Дякуємо — %lld людина вже позначила цей запис."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Дякуємо — %lld людей уже позначили цей запис."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "Thanks — the first report on this entry. We'll check it." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дякуємо — це перше повідомлення щодо цього запису. Ми перевіримо."
+          }
+        }
+      }
+    },
+    "The closest safe haven, ranked by walking time." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Найближче безпечне місце за часом ходьби."
+          }
+        }
+      }
+    },
+    "The hours are wrong" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Години роботи неправильні"
+          }
+        }
+      }
+    },
+    "The threat service did not answer in time." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сервіс загроз не відповів вчасно."
+          }
+        }
+      }
+    },
+    "The threat service returned an error (%lld)." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сервіс загроз повернув помилку (%lld)."
+          }
+        }
+      }
+    },
+    "The threat service sent an unexpected response." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сервіс загроз надіслав несподівану відповідь."
+          }
+        }
+      }
+    },
+    "There may be a gas leak nearby." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Поблизу може бути витік газу."
+          }
+        }
+      }
+    },
+    "There's no shelter here" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тут немає укриття"
+          }
+        }
+      }
+    },
+    "This device cannot send text messages." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Цей пристрій не може надсилати текстові повідомлення."
+          }
+        }
+      }
+    },
+    "Threat Check" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Перевірка загроз"
+          }
+        }
+      }
+    },
+    "Threat status" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Статус загрози"
+          }
+        }
+      }
+    },
+    "Threat zones unavailable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зони загроз недоступні"
+          }
+        }
+      }
+    },
+    "Three knocks, pause, repeat. Use a whistle if you have one. Shout only as a last resort — it makes you inhale dust." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Три удари, пауза, повторіть. Скористайтеся свистком, якщо він є. Кричіть лише в крайньому разі — так ви вдихаєте пил."
+          }
+        }
+      }
+    },
+    "TIME SINCE ALERT" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ЧАС З ПОЧАТКУ ТРИВОГИ"
+          }
+        }
+      }
+    },
+    "to sector" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "до сектора"
+          }
+        }
+      }
+    },
+    "Too many checks — easing off for a moment." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Забагато перевірок — робимо коротку паузу."
+          }
+        }
+      }
+    },
+    "Tourniquet for limbs" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Джгут на кінцівки"
+          }
+        }
+      }
+    },
+    "Trapped under rubble" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Під завалами"
+          }
+        }
+      }
+    },
+    "Treat any gas smell as a leak." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Будь-який запах газу вважайте витоком."
+          }
+        }
+      }
+    },
+    "Two walls between you and windows" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дві стіни між вами та вікнами"
+          }
+        }
+      }
+    },
+    "TYPE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ТИП"
+          }
+        }
+      }
+    },
+    "UA Air Force · official channel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повітряні сили ЗСУ · офіційний канал"
+          }
+        }
+      }
+    },
+    "UNVERIFIED" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "НЕПІДТВЕРДЖЕНО"
+          }
+        }
+      }
+    },
+    "Unverified source" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неперевірене джерело"
+          }
+        }
+      }
+    },
+    "Up to %lld people get your \"I'm safe\" message" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повідомлення «Я в безпеці» отримають до %lld людей"
+          }
+        }
+      }
+    },
+    "updated %@ ago" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "оновлено %@ тому"
+          }
+        }
+      }
+    },
+    "updated 4s ago" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "оновлено 4 с тому"
+          }
+        }
+      }
+    },
+    "Use any cover" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скористайтеся будь-яким укриттям"
+          }
+        }
+      }
+    },
+    "Use cloth or your hand. Keep constant pressure." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Скористайтеся тканиною або рукою. Тримайте постійний тиск."
+          }
+        }
+      }
+    },
+    "Use clothing or any fabric to filter dust." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Використайте одяг або будь-яку тканину, щоб фільтрувати пил."
+          }
+        }
+      }
+    },
+    "Use stairs, not lifts" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Користуйтеся сходами, а не ліфтом"
+          }
+        }
+      }
+    },
+    "Utilities, heating, shelter access" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Комунальні послуги, опалення, доступ до укриттів"
+          }
+        }
+      }
+    },
+    "VectorAlert" : {},
+    "Ventilate if it is safe to do so." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Провітрюйте, якщо це безпечно."
+          }
+        }
+      }
+    },
+    "View Distance & Safety Protocol" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відстань і протокол безпеки"
+          }
+        }
+      }
+    },
+    "Wait at least a few minutes. Secondary explosions are common." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зачекайте щонайменше кілька хвилин. Повторні вибухи трапляються часто."
+          }
+        }
+      }
+    },
+    "Waiting for a location fix. The map still shows every active zone." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очікуємо визначення місця. Мапа все одно показує всі активні зони."
+          }
+        }
+      }
+    },
+    "Waiting for a sector check." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очікуємо перевірки сектора."
+          }
+        }
+      }
+    },
+    "Waiting for location" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очікуємо геолокацію"
+          }
+        }
+      }
+    },
+    "Waiting for the first sector check." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Очікуємо першої перевірки сектора."
+          }
+        }
+      }
+    },
+    "Warn neighbours by knocking, not by doorbell." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Попереджайте сусідів стуком, а не дзвінком у двері."
+          }
+        }
+      }
+    },
+    "WATCH" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "УВАГА"
+          }
+        }
+      }
+    },
+    "Water and food" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вода й їжа"
+          }
+        }
+      }
+    },
+    "What's wrong with this entry?" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Що не так із цим записом?"
+          }
+        }
+      }
+    },
+    "Whistle and warm layer" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Свисток і тепле вбрання"
+          }
+        }
+      }
+    },
+    "Write the time the tourniquet was applied on the skin or tourniquet." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Напишіть час накладання джгута на шкірі чи на самому джгуті."
+          }
+        }
+      }
+    },
+    "Yes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Так"
+          }
+        }
+      }
+    },
+    "You have reported a lot of shelters in the last hour. Try again later." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви повідомили про багато укриттів за останню годину. Спробуйте пізніше."
+          }
+        }
+      }
+    },
+    "You reported a problem with this entry." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви повідомили про проблему із цим записом."
+          }
+        }
+      }
+    },
+    "You reported this" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви вже повідомили"
+          }
+        }
+      }
+    },
+    "Your coordinates — read them out if you cannot name the address." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ваші координати — продиктуйте їх, якщо не можете назвати адресу."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

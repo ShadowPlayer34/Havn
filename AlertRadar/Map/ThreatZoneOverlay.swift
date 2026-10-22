@@ -144,9 +144,9 @@ extension ThreatZone {
         var parts: [String] = []
         parts.append(count > 1 ? "\(count) \(threatType.localizedName)" : threatType.localizedName)
         if !sectors.isEmpty {
-            parts.append(sectors.count == 1 ? "1 district" : "\(sectors.count) districts")
+            parts.append(String(localized: "\(sectors.count) districts"))
         }
-        parts.append("\(Int((confidence * 100).rounded()))% confidence")
+        parts.append(String(localized: "\(Int((confidence * 100).rounded()))% confidence"))
         return parts.joined(separator: " · ").uppercased()
     }
 }

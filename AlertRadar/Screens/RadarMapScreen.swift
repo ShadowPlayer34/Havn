@@ -306,18 +306,18 @@ struct RadarMapScreen: View {
     /// separate clocks, and either going quiet is enough to make the screen wrong.
     private func feedStatus(at now: Date) -> (label: String, isLive: Bool) {
         if zones.errorMessage != nil || threats.errorMessage != nil {
-            return ("Offline", false)
+            return (String(localized: "Offline"), false)
         }
         guard let updated = zones.lastUpdated else {
-            return ("Connecting", false)
+            return (String(localized: "Connecting"), false)
         }
         // The check only starts once a fix has landed, so a nil there is "not started
         // yet", not "stale" — the location capsule is already saying so in words.
         let age = now.timeIntervalSince(min(updated, threats.lastUpdated ?? updated))
-        guard age > Self.stalenessLimit else { return ("Live", true) }
+        guard age > Self.stalenessLimit else { return (String(localized: "Live"), true) }
         // Minutes, floored: "Stale · 1 min" understates by less than a minute, and
         // rounding up would claim staleness the payload has not reached yet.
-        return ("Stale · \(Int(age / 60)) min", false)
+        return (String(localized: "Stale · \(Int(age / 60)) min"), false)
     }
 
     private var menuButton: some View {
@@ -443,7 +443,7 @@ struct RadarMapScreen: View {
         return location.hasFix ? location.displayName : nil
     }
 
-    private var capsuleTitle: String { areaName ?? "Location unavailable" }
+    private var capsuleTitle: String { areaName ?? String(localized: "Location unavailable") }
 
     /// What the lock screen would say right now, built from the same zone and the same
     /// check answer the cluster below is reading.
@@ -461,10 +461,10 @@ struct RadarMapScreen: View {
         // Checked before the error: with no coordinate no check is ever attempted, so
         // there is nothing for the network to have failed at.
         if !location.hasFix {
-            return location.authorizationDenied ? "Location access is off" : "Waiting for location"
+            return location.authorizationDenied ? String(localized: "Location access is off") : String(localized: "Waiting for location")
         }
-        if threats.errorMessage != nil { return "No sector data" }
-        return "Checking sector…"
+        if threats.errorMessage != nil { return String(localized: "No sector data") }
+        return String(localized: "Checking sector…")
     }
 
     private var capsuleSubtitleColour: Color {
@@ -478,14 +478,14 @@ struct RadarMapScreen: View {
                 // The overlay needs no coordinate, so say what is still true rather than
                 // leaving the screen looking broken.
                 return location.authorizationDenied
-                    ? "Location is off, so your own sector cannot be checked. The map still shows every active zone."
-                    : "Waiting for a location fix. The map still shows every active zone."
+                    ? String(localized: "Location is off, so your own sector cannot be checked. The map still shows every active zone.")
+                    : String(localized: "Waiting for a location fix. The map still shows every active zone.")
             }
-            return threats.errorMessage ?? "Waiting for the first sector check."
+            return threats.errorMessage ?? String(localized: "Waiting for the first sector check.")
         }
-        if response.riskLevel != .none { return "Alert active in this sector." }
-        guard let nearest = threats.shelters.first else { return "Nothing inbound." }
-        return "Nothing inbound. Nearest shelter is \(nearest.distanceLabel) away."
+        if response.riskLevel != .none { return String(localized: "Alert active in this sector.") }
+        guard let nearest = threats.shelters.first else { return String(localized: "Nothing inbound.") }
+        return String(localized: "Nothing inbound. Nearest shelter is \(nearest.distanceLabel) away.")
     }
 
     private var threatPillLabel: String {
@@ -500,19 +500,19 @@ struct RadarMapScreen: View {
             // oblast-sized shape — so `zone.kind` is not a fact about where the user is
             // standing, and stating it here is what put "in your district" on screen
             // under a capsule reading "Elevated attention".
-            let placement = threats.riskLevel == .high ? "in your district" : "in the risk area"
+            let placement = threats.riskLevel == .high ? String(localized: "in your district") : String(localized: "in the risk area")
             return "\(subject) · \(placement)"
         }
         guard let response = threats.response else {
             if !location.hasFix { return zonesSummary }
-            return threats.errorMessage == nil ? "Awaiting sector check" : "Sector check unavailable"
+            return threats.errorMessage == nil ? String(localized: "Awaiting sector check") : String(localized: "Sector check unavailable")
         }
         if let threat = response.threatType {
-            return "1 Active Threat · \(threat)"
+            return String(localized: "1 Active Threat · \(threat)")
         }
         return response.riskLevel == .none
-            ? "No active threat in sector"
-            : "\(response.riskLevel.localizedTitle) risk in sector"
+            ? String(localized: "No active threat in sector")
+            : String(localized: "\(response.riskLevel.localizedTitle) risk in sector")
     }
 
     /// The country-wide count, which `/threats/zones` answers without being told where
@@ -520,12 +520,11 @@ struct RadarMapScreen: View {
     /// is no fix — and on a quiet night "no active threats" is the answer, not a failure.
     private var zonesSummary: String {
         guard zones.hasLoaded else {
-            return zones.errorMessage == nil ? "Loading threat zones…" : "Threat zones unavailable"
+            return zones.errorMessage == nil ? String(localized: "Loading threat zones…") : String(localized: "Threat zones unavailable")
         }
         return switch zones.activeThreatCount {
-        case 0: "No active threats"
-        case 1: "1 active threat on the map"
-        case let count: "\(count) active threats on the map"
+        case 0: String(localized: "No active threats")
+        case let count: String(localized: "\(count) active threats on the map")
         }
     }
 
@@ -549,7 +548,7 @@ struct RadarMapScreen: View {
 
     private var scaleIndicator: some View {
         VStack(alignment: .trailing, spacing: 6) {
-            Text("\(scale?.zoomLabel ?? "DISTRICT") · \(scale?.ratioLabel ?? "1:10 000")")
+            Text("\(scale?.zoomLabel ?? String(localized: "DISTRICT")) · \(scale?.ratioLabel ?? "1:10 000")")
                 .font(VAFont.mono(8.5, .semibold))
                 .tracking(em: 0.14, size: 8.5)
                 .foregroundStyle(.white.opacity(0.5))
@@ -722,7 +721,7 @@ struct LayerTray: View {
         Button(action: action) {
             VStack(spacing: label == "AREA" ? 3 : 4) {
                 icon()
-                Text(label)
+                Text(LocalizedStringKey(label))
                     .font(VAFont.display(8))
                     .tracking(em: 0.02, size: 8)
                     .foregroundStyle(isOn ? .white : VA.secondary(0.45))

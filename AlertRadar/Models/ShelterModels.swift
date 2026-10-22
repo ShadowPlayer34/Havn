@@ -48,8 +48,8 @@ nonisolated struct Shelter: Codable, Equatable, Sendable, Identifiable {
     /// "240 m" / "1.4 km" — the number people actually reason about.
     var distanceLabel: String {
         distanceMeters < 1_000
-            ? "\(Int(distanceMeters.rounded())) m"
-            : String(format: "%.1f km", distanceMeters / 1_000)
+            ? String(localized: "\(Int(distanceMeters.rounded())) m")
+            : String(format: String(localized: "%.1f km"), distanceMeters / 1_000)
     }
 
     /// Rounded up: nobody is reassured by "0 min walk". 80 m/min is a brisk pace.
@@ -77,9 +77,9 @@ nonisolated struct Shelter: Codable, Equatable, Sendable, Identifiable {
 
     var provenanceLabel: String {
         switch source {
-        case "kmda": "Kyiv city register"
-        case "koda": "Kyiv oblast register · position approximate"
-        default: "Unverified source"
+        case "kmda": String(localized: "Kyiv city register")
+        case "koda": String(localized: "Kyiv oblast register · position approximate")
+        default: String(localized: "Unverified source")
         }
     }
 
@@ -101,15 +101,15 @@ nonisolated struct Shelter: Codable, Equatable, Sendable, Identifiable {
 
     var typeTitle: String {
         switch shelterType {
-        case "bomb_shelter": "Bomb shelter"
-        case "dual_purpose": "Dual-purpose structure"
-        case "simple_shelter": "Simple shelter"
-        case "radiation_shelter": "Radiation shelter"
-        case "civil_defence", "civil_shelter": "Civil defence shelter"
-        case "emergency_shelter": "Emergency shelter"
-        case "air_raid": "Air raid shelter"
-        case "bunker": "Bunker"
-        default: "Shelter"
+        case "bomb_shelter": String(localized: "Bomb shelter")
+        case "dual_purpose": String(localized: "Dual-purpose structure")
+        case "simple_shelter": String(localized: "Simple shelter")
+        case "radiation_shelter": String(localized: "Radiation shelter")
+        case "civil_defence", "civil_shelter": String(localized: "Civil defence shelter")
+        case "emergency_shelter": String(localized: "Emergency shelter")
+        case "air_raid": String(localized: "Air raid shelter")
+        case "bunker": String(localized: "Bunker")
+        default: String(localized: "Shelter")
         }
     }
 }
@@ -144,11 +144,11 @@ nonisolated enum ShelterReportReason: String, CaseIterable, Codable, Sendable, I
 
     var title: String {
         switch self {
-        case .wrongLocation: "It's not at this spot"
-        case .doesNotExist: "There's no shelter here"
-        case .locked: "Locked — I couldn't get in"
-        case .wrongHours: "The hours are wrong"
-        case .other: "Something else"
+        case .wrongLocation: String(localized: "It's not at this spot")
+        case .doesNotExist: String(localized: "There's no shelter here")
+        case .locked: String(localized: "Locked — I couldn't get in")
+        case .wrongHours: String(localized: "The hours are wrong")
+        case .other: String(localized: "Something else")
         }
     }
 

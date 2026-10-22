@@ -30,7 +30,7 @@ struct ThreatActivityAttributes: ActivityAttributes {
         /// When the content below last changed — not when it was last pushed.
         var updated: Date
 
-        var title: String { area.map { "Risk Area: \($0)" } ?? "Threat status" }
+        var title: String { area.map { String(localized: "Risk Area: \($0)") } ?? String(localized: "Threat status") }
     }
 
     /// The arrival window as instants, so the widget can run the clock itself.
@@ -64,11 +64,11 @@ enum ArrivalWindow {
 
     static func label(secondsRemaining: Int) -> String {
         let window = bounds(secondsRemaining: secondsRemaining)
-        return "\(window.lo)–\(window.hi) min"
+        return String(localized: "\(window.lo)–\(window.hi) min")
     }
 
     static func shortLabel(secondsRemaining: Int) -> String {
         let window = bounds(secondsRemaining: secondsRemaining)
-        return "\(window.lo)–\(window.hi)m"
+        return String(localized: "\(window.lo)–\(window.hi)m")
     }
 }

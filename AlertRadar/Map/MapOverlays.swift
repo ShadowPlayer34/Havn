@@ -133,7 +133,7 @@ struct MapLegend: View {
     }
 
     private func header(_ text: String) -> some View {
-        Text(text)
+        Text(LocalizedStringKey(text))
             .font(VAFont.mono(7.5, .semibold))
             .tracking(em: 0.1, size: 7.5)
             .foregroundStyle(.white.opacity(0.45))
@@ -167,7 +167,7 @@ struct RiskAreaCaption: View {
     /// plain statement that it did not when the wash is generated locally.
     var detail: String
     var accent: Color = VA.orange
-    var title: String = "Estimated Risk Area (OSINT-based)"
+    var title: LocalizedStringKey = "Estimated Risk Area (OSINT-based)"
 
     var body: some View {
         HStack(spacing: 7) {
@@ -234,8 +234,8 @@ struct MapScale {
         } ?? 1_000
         barWidth = min(96, max(34, distance / metresPerPoint))
         distanceLabel = distance >= 1_000
-            ? "\(Int(distance / 1_000)) km"
-            : "\(Int(distance)) m"
+            ? String(localized: "\(Int(distance / 1_000)) km")
+            : String(localized: "\(Int(distance)) m")
 
         let ratio = metresPerPoint * Self.pointsPerMetre
         let magnitude = pow(10, (log10(ratio)).rounded(.down))
@@ -243,10 +243,10 @@ struct MapScale {
         ratioLabel = "1:" + rounded.formatted(.number.grouping(.automatic)).replacingOccurrences(of: ",", with: " ")
 
         zoomLabel = switch ratio {
-        case 100_000...: "REGION"
-        case 25_000...: "CITY OVERVIEW"
-        case 8_000...: "DISTRICT"
-        default: "STREET LEVEL"
+        case 100_000...: String(localized: "REGION")
+        case 25_000...: String(localized: "CITY OVERVIEW")
+        case 8_000...: String(localized: "DISTRICT")
+        default: String(localized: "STREET LEVEL")
         }
     }
 }

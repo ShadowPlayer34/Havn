@@ -21,84 +21,84 @@ struct EmergencyGuide: Identifiable, Equatable {
     static let all: [EmergencyGuide] = [
         EmergencyGuide(
             id: "rubble",
-            title: "Trapped under rubble",
+            title: String(localized: "Trapped under rubble"),
             color: VA.red,
-            lead: "Rescuers search by sound first. Your job is to stay still, breathe clean air and be heard.",
+            lead: String(localized: "Rescuers search by sound first. Your job is to stay still, breathe clean air and be heard."),
             steps: [
-                Step(title: "Stay still and check yourself", detail: "Move slowly. Sudden movement can shift debris above you."),
-                Step(title: "Cover your nose and mouth", detail: "Use clothing or any fabric to filter dust."),
-                Step(title: "No matches or lighters", detail: "There may be a gas leak nearby."),
-                Step(title: "Tap on a pipe or wall", detail: "Three knocks, pause, repeat. Use a whistle if you have one. Shout only as a last resort — it makes you inhale dust."),
-                Step(title: "Save your battery", detail: "Send an SMS with your location to 112 or a contact instead of calling. Turn on Low Power Mode."),
-                Step(title: "If a limb is pinned, wait", detail: "Do not pull it free yourself after a long time trapped. Tell rescuers how long it has been."),
+                Step(title: String(localized: "Stay still and check yourself"), detail: String(localized: "Move slowly. Sudden movement can shift debris above you.")),
+                Step(title: String(localized: "Cover your nose and mouth"), detail: String(localized: "Use clothing or any fabric to filter dust.")),
+                Step(title: String(localized: "No matches or lighters"), detail: String(localized: "There may be a gas leak nearby.")),
+                Step(title: String(localized: "Tap on a pipe or wall"), detail: String(localized: "Three knocks, pause, repeat. Use a whistle if you have one. Shout only as a last resort — it makes you inhale dust.")),
+                Step(title: String(localized: "Save your battery"), detail: String(localized: "Send an SMS with your location to 112 or a contact instead of calling. Turn on Low Power Mode.")),
+                Step(title: String(localized: "If a limb is pinned, wait"), detail: String(localized: "Do not pull it free yourself after a long time trapped. Tell rescuers how long it has been.")),
             ],
-            warning: "Do not try to dig yourself out if debris above you is unstable. Wait for DSNS rescuers."
+            warning: String(localized: "Do not try to dig yourself out if debris above you is unstable. Wait for DSNS rescuers.")
         ),
         EmergencyGuide(
             id: "blast",
-            title: "Explosion nearby",
+            title: String(localized: "Explosion nearby"),
             color: VA.orange,
-            lead: "If you hear a launch or explosion and are not in a shelter, drop immediately.",
+            lead: String(localized: "If you hear a launch or explosion and are not in a shelter, drop immediately."),
             steps: [
-                Step(title: "Lie face down", detail: "Cover your head with your hands, mouth slightly open to protect your eardrums."),
-                Step(title: "Use any cover", detail: "A curb, ditch or wall between you and the blast. Stay away from windows."),
-                Step(title: "Stay down", detail: "Wait at least a few minutes. Secondary explosions are common."),
-                Step(title: "Move to shelter", detail: "Go to the nearest shelter, not toward the impact site."),
+                Step(title: String(localized: "Lie face down"), detail: String(localized: "Cover your head with your hands, mouth slightly open to protect your eardrums.")),
+                Step(title: String(localized: "Use any cover"), detail: String(localized: "A curb, ditch or wall between you and the blast. Stay away from windows.")),
+                Step(title: String(localized: "Stay down"), detail: String(localized: "Wait at least a few minutes. Secondary explosions are common.")),
+                Step(title: String(localized: "Move to shelter"), detail: String(localized: "Go to the nearest shelter, not toward the impact site.")),
             ],
-            warning: "Do not film or approach the impact site. Debris and unexploded parts can be dangerous."
+            warning: String(localized: "Do not film or approach the impact site. Debris and unexploded parts can be dangerous.")
         ),
         EmergencyGuide(
             id: "fire",
-            title: "Fire and smoke",
+            title: String(localized: "Fire and smoke"),
             color: Color(hex: 0xFF6B3D),
-            lead: "Smoke is the main danger. Stay low and leave early.",
+            lead: String(localized: "Smoke is the main danger. Stay low and leave early."),
             steps: [
-                Step(title: "Stay low", detail: "Cleaner air is close to the floor. Cover your face with damp fabric."),
-                Step(title: "Check doors before opening", detail: "If the handle is hot, use another way out."),
-                Step(title: "Use stairs, not lifts", detail: "Lifts can stop when power goes out."),
-                Step(title: "Call 101 once outside", detail: "Give the address, floor and whether anyone is still inside."),
+                Step(title: String(localized: "Stay low"), detail: String(localized: "Cleaner air is close to the floor. Cover your face with damp fabric.")),
+                Step(title: String(localized: "Check doors before opening"), detail: String(localized: "If the handle is hot, use another way out.")),
+                Step(title: String(localized: "Use stairs, not lifts"), detail: String(localized: "Lifts can stop when power goes out.")),
+                Step(title: String(localized: "Call 101 once outside"), detail: String(localized: "Give the address, floor and whether anyone is still inside.")),
             ],
-            warning: "If you cannot leave, seal the door gaps with wet cloth and signal from a window."
+            warning: String(localized: "If you cannot leave, seal the door gaps with wet cloth and signal from a window.")
         ),
         EmergencyGuide(
             id: "bleed",
-            title: "Severe bleeding",
+            title: String(localized: "Severe bleeding"),
             color: Color(hex: 0xFF2D55),
-            lead: "Heavy bleeding can be fatal within minutes. Press first, then call.",
+            lead: String(localized: "Heavy bleeding can be fatal within minutes. Press first, then call."),
             steps: [
-                Step(title: "Press hard on the wound", detail: "Use cloth or your hand. Keep constant pressure."),
-                Step(title: "Tourniquet for limbs", detail: "Place it 5–7 cm above the wound, tighten until bleeding stops."),
-                Step(title: "Note the time", detail: "Write the time the tourniquet was applied on the skin or tourniquet."),
-                Step(title: "Call 103", detail: "Keep the person warm and lying down until help arrives."),
+                Step(title: String(localized: "Press hard on the wound"), detail: String(localized: "Use cloth or your hand. Keep constant pressure.")),
+                Step(title: String(localized: "Tourniquet for limbs"), detail: String(localized: "Place it 5–7 cm above the wound, tighten until bleeding stops.")),
+                Step(title: String(localized: "Note the time"), detail: String(localized: "Write the time the tourniquet was applied on the skin or tourniquet.")),
+                Step(title: String(localized: "Call 103"), detail: String(localized: "Keep the person warm and lying down until help arrives.")),
             ],
-            warning: "Never loosen a tourniquet once applied. Medics will remove it."
+            warning: String(localized: "Never loosen a tourniquet once applied. Medics will remove it.")
         ),
         EmergencyGuide(
             id: "gas",
-            title: "Gas smell",
+            title: String(localized: "Gas smell"),
             color: Color(hex: 0xFFD60A),
-            lead: "Treat any gas smell as a leak.",
+            lead: String(localized: "Treat any gas smell as a leak."),
             steps: [
-                Step(title: "No switches or flames", detail: "Do not turn lights on or off, do not use a lighter."),
-                Step(title: "Open windows", detail: "Ventilate if it is safe to do so."),
-                Step(title: "Leave the building", detail: "Warn neighbours by knocking, not by doorbell."),
-                Step(title: "Call 104 from outside", detail: "Do not call from inside the building."),
+                Step(title: String(localized: "No switches or flames"), detail: String(localized: "Do not turn lights on or off, do not use a lighter.")),
+                Step(title: String(localized: "Open windows"), detail: String(localized: "Ventilate if it is safe to do so.")),
+                Step(title: String(localized: "Leave the building"), detail: String(localized: "Warn neighbours by knocking, not by doorbell.")),
+                Step(title: String(localized: "Call 104 from outside"), detail: String(localized: "Do not call from inside the building.")),
             ],
-            warning: "Do not use a phone inside a room where gas is strong."
+            warning: String(localized: "Do not use a phone inside a room where gas is strong.")
         ),
         EmergencyGuide(
             id: "bag",
-            title: "Go-bag and shelter kit",
+            title: String(localized: "Go-bag and shelter kit"),
             color: VA.green,
-            lead: "Keep a bag ready by the door.",
+            lead: String(localized: "Keep a bag ready by the door."),
             steps: [
-                Step(title: "Documents", detail: "Passport, ID and copies in a waterproof pouch."),
-                Step(title: "Water and food", detail: "2 litres of water per person, food for 2–3 days."),
-                Step(title: "Power and light", detail: "Charged power bank, torch, spare batteries."),
-                Step(title: "Medical", detail: "First-aid kit, tourniquet, personal medicines for a week."),
-                Step(title: "Whistle and warm layer", detail: "A whistle helps rescuers find you."),
+                Step(title: String(localized: "Documents"), detail: String(localized: "Passport, ID and copies in a waterproof pouch.")),
+                Step(title: String(localized: "Water and food"), detail: String(localized: "2 litres of water per person, food for 2–3 days.")),
+                Step(title: String(localized: "Power and light"), detail: String(localized: "Charged power bank, torch, spare batteries.")),
+                Step(title: String(localized: "Medical"), detail: String(localized: "First-aid kit, tourniquet, personal medicines for a week.")),
+                Step(title: String(localized: "Whistle and warm layer"), detail: String(localized: "A whistle helps rescuers find you.")),
             ],
-            warning: "Check expiry dates and charge levels once a month."
+            warning: String(localized: "Check expiry dates and charge levels once a month.")
         ),
     ]
 }
@@ -384,8 +384,8 @@ struct EmergencyGuidesSheet: View {
     }
 
     private var helpMessage: String {
-        guard let coordinate else { return "I need help." }
-        return "I need help. My location: \(coordinate.mapsLink)"
+        guard let coordinate else { return String(localized: "I need help.") }
+        return String(localized: "I need help. My location: \(coordinate.mapsLink)")
     }
 }
 

@@ -17,19 +17,19 @@ struct EmergencyLine: Identifiable, Equatable {
     var telURL: URL? { URL(string: "tel:\(number.filter(\.isNumber))") }
 
     static let single = EmergencyLine(
-        number: "112", name: "Single emergency line", detail: "Connects to any service", color: VA.red
+        number: "112", name: String(localized: "Single emergency line"), detail: String(localized: "Connects to any service"), color: VA.red
     )
 
     static let services: [EmergencyLine] = [
-        EmergencyLine(number: "101", name: "Rescue · DSNS", detail: "Fire, rubble, rescue", color: VA.orange),
-        EmergencyLine(number: "102", name: "Police", detail: "Crime, suspicious objects", color: VA.cyan),
-        EmergencyLine(number: "103", name: "Ambulance", detail: "Injuries, medical help", color: VA.red),
-        EmergencyLine(number: "104", name: "Gas service", detail: "Gas leaks", color: Color(hex: 0xFFD60A)),
+        EmergencyLine(number: "101", name: String(localized: "Rescue · DSNS"), detail: String(localized: "Fire, rubble, rescue"), color: VA.orange),
+        EmergencyLine(number: "102", name: String(localized: "Police"), detail: String(localized: "Crime, suspicious objects"), color: VA.cyan),
+        EmergencyLine(number: "103", name: String(localized: "Ambulance"), detail: String(localized: "Injuries, medical help"), color: VA.red),
+        EmergencyLine(number: "104", name: String(localized: "Gas service"), detail: String(localized: "Gas leaks"), color: Color(hex: 0xFFD60A)),
     ]
 
     static let cityLines: [EmergencyLine] = [
-        EmergencyLine(number: "1551", name: "Kyiv city contact centre", detail: "Utilities, heating, shelter access"),
-        EmergencyLine(number: "15-80", name: "Kyiv emergency hotline", detail: "Damaged buildings after strikes"),
+        EmergencyLine(number: "1551", name: String(localized: "Kyiv city contact centre"), detail: String(localized: "Utilities, heating, shelter access")),
+        EmergencyLine(number: "15-80", name: String(localized: "Kyiv emergency hotline"), detail: String(localized: "Damaged buildings after strikes")),
     ]
 }
 
@@ -186,7 +186,7 @@ struct EmergencyServicesSheet: View {
         .contentShape(RoundedRectangle(cornerRadius: 24))
     }
 
-    private func sectionLabel(_ text: String) -> some View {
+    private func sectionLabel(_ text: LocalizedStringKey) -> some View {
         Text(text)
             .font(VAFont.display(10))
             .tracking(em: 0.1, size: 10)
@@ -314,12 +314,12 @@ struct EmergencyServicesSheet: View {
         let hue: Color
         let text: Color
         if let sent {
-            let people = sent.count == 1 ? "1 contact" : "\(sent.count) contacts"
-            label = "Sent to \(people) · \(sent.at.formatted(date: .omitted, time: .shortened))"
+            let people = String(localized: "\(sent.count) contacts")
+            label = String(localized: "Sent to \(people) · \(sent.at.formatted(date: .omitted, time: .shortened))")
             hue = VA.green
             text = Color(hex: 0x7EE29A)
         } else {
-            label = "Send \"I'm safe\" + location"
+            label = String(localized: "Send \"I'm safe\" + location")
             hue = VA.cyan
             text = VA.cyanText
         }
@@ -355,8 +355,8 @@ struct EmergencyServicesSheet: View {
     }
 
     private var safeMessage: String {
-        guard let coordinate else { return "I'm safe." }
-        return "I'm safe. My location: \(coordinate.mapsLink)"
+        guard let coordinate else { return String(localized: "I'm safe.") }
+        return String(localized: "I'm safe. My location: \(coordinate.mapsLink)")
     }
 }
 

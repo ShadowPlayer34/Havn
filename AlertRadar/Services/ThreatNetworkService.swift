@@ -48,12 +48,12 @@ nonisolated enum ThreatServiceError: LocalizedError, Equatable {
 
     var errorDescription: String? {
         switch self {
-        case .invalidURL: "Could not build the request URL."
-        case .offline: "No network connection."
-        case .timedOut: "The threat service did not answer in time."
-        case .server(let status): "The threat service returned an error (\(status))."
-        case .rateLimited: "Too many checks — easing off for a moment."
-        case .decoding: "The threat service sent an unexpected response."
+        case .invalidURL: String(localized: "Could not build the request URL.")
+        case .offline: String(localized: "No network connection.")
+        case .timedOut: String(localized: "The threat service did not answer in time.")
+        case .server(let status): String(localized: "The threat service returned an error (\(status)).")
+        case .rateLimited: String(localized: "Too many checks — easing off for a moment.")
+        case .decoding: String(localized: "The threat service sent an unexpected response.")
         case .transport(let message): message
         }
     }
@@ -199,7 +199,7 @@ actor ThreatNetworkService: ThreatNetworkServiceProtocol {
         }
 
         guard let http = response as? HTTPURLResponse else {
-            throw ThreatServiceError.transport("Malformed response.")
+            throw ThreatServiceError.transport(String(localized: "Malformed response."))
         }
         return (data, http)
     }

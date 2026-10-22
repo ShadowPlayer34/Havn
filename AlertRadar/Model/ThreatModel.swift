@@ -51,7 +51,7 @@ final class ThreatModel {
     /// Shared with the widget extension so the two can never word the window differently.
     var etaLabel: String { ArrivalWindow.label(secondsRemaining: secondsRemaining) }
     var etaShort: String { ArrivalWindow.shortLabel(secondsRemaining: secondsRemaining) }
-    var islandLabel: String { "\(etaShort) • Risk" }
+    var islandLabel: String { String(localized: "\(etaShort) • Risk") }
 
     /// Earliest arrival is two minutes ahead of the midpoint estimate.
     private var earliestSeconds: Int { max(0, secondsRemaining - 120) }
@@ -68,7 +68,7 @@ final class ThreatModel {
         filter == .all ? FeedItem.all : FeedItem.all.filter { $0.category == filter }
     }
 
-    var feedMeta: String { "\(visibleFeed.count) of \(FeedItem.all.count) · de-duplicated" }
+    var feedMeta: String { String(localized: "\(visibleFeed.count) of \(FeedItem.all.count) · de-duplicated") }
 
     func toggleExpanded(_ item: FeedItem) {
         if expandedItems.contains(item.id) {

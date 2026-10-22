@@ -70,9 +70,9 @@ struct SafetyGauge {
     let caption: String
 
     static let all: [SafetyGauge] = [
-        SafetyGauge(value: "88%", state: "SAFE", color: VA.green, degrees: 317, caption: "Outside main risk area"),
-        SafetyGauge(value: "54%", state: "WATCH", color: VA.orange, degrees: 194, caption: "Risk area edge · widening"),
-        SafetyGauge(value: "21%", state: "SEEK COVER", color: VA.red, degrees: 76, caption: "Inside risk area · 2–6 min")
+        SafetyGauge(value: "88%", state: String(localized: "SAFE"), color: VA.green, degrees: 317, caption: String(localized: "Outside main risk area")),
+        SafetyGauge(value: "54%", state: String(localized: "WATCH"), color: VA.orange, degrees: 194, caption: String(localized: "Risk area edge · widening")),
+        SafetyGauge(value: "21%", state: String(localized: "SEEK COVER"), color: VA.red, degrees: 76, caption: String(localized: "Inside risk area · 2–6 min"))
     ]
 
     static func forPercent(_ percent: Int) -> SafetyGauge {

@@ -284,11 +284,11 @@ nonisolated struct ArrivalEstimate: Sendable, Equatable {
 
     /// English "now" is not a slip — it is what `/threats/check` returns in `eta_window`,
     /// and the two must never word the same fact differently.
-    var label: String { isImminent ? "now" : "\(earliest)–\(latest) min" }
+    var label: String { isImminent ? "now" : String(localized: "\(earliest)–\(latest) min") }
 
     /// The same window where the space is not there — the Dynamic Island's compact
     /// trailing region and the lock screen banner.
-    var shortLabel: String { isImminent ? "now" : "\(earliest)–\(latest)m" }
+    var shortLabel: String { isImminent ? "now" : String(localized: "\(earliest)–\(latest)m") }
 
     init?(etaMinutes: Int?, updatedAt: Date, now: Date = .now) {
         guard let etaMinutes else { return nil }

@@ -94,7 +94,7 @@ struct ShelterDetailSheet: View {
 
     private var statRow: some View {
         HStack(spacing: 8) {
-            stat(shelter.distanceLabel, caption: "\(shelter.walkMinutes) min walk", tint: VA.green)
+            stat(shelter.distanceLabel, caption: String(localized: "\(shelter.walkMinutes) min walk"), tint: VA.green)
             stat(
                 shelter.isAlwaysOpen ? "24/7" : "Limited",
                 caption: shelter.isAlwaysOpen ? "always open" : "check hours",
@@ -105,11 +105,11 @@ struct ShelterDetailSheet: View {
 
     private func stat(_ value: String, caption: String, tint: Color) -> some View {
         VStack(alignment: .leading, spacing: 5) {
-            Text(value)
+            Text(LocalizedStringKey(value))
                 .font(VAFont.rounded(28))
                 .tracking(em: -0.02, size: 28)
                 .foregroundStyle(tint)
-            Text(caption)
+            Text(LocalizedStringKey(caption))
                 .font(VAFont.display(11, .medium))
                 .foregroundStyle(VA.secondary(0.55))
         }
@@ -130,7 +130,7 @@ struct ShelterDetailSheet: View {
             }
             if let accessible = shelter.accessible {
                 divider
-                row("STEP-FREE", value: accessible ? "Yes" : "No",
+                row("STEP-FREE", value: accessible ? String(localized: "Yes") : String(localized: "No"),
                     accent: accessible ? VA.green : VA.secondary(0.8))
             }
             if let district = shelter.district {
@@ -159,7 +159,7 @@ struct ShelterDetailSheet: View {
 
     private func row(_ label: String, value: String, accent: Color = .white) -> some View {
         HStack(alignment: .top, spacing: 12) {
-            Text(label)
+            Text(LocalizedStringKey(label))
                 .font(VAFont.mono(10, .semibold))
                 .tracking(em: 0.06, size: 10)
                 .foregroundStyle(VA.secondary(0.4))
@@ -216,17 +216,17 @@ struct ShelterDetailSheet: View {
 
     private var bannerText: String {
         switch reportState {
-        case .sending: "Sending your report…"
+        case .sending: String(localized: "Sending your report…")
         case .sent(let total):
             total > 1
-                ? "Thanks — \(total) people have now flagged this entry."
-                : "Thanks — the first report on this entry. We'll check it."
+                ? String(localized: "Thanks — \(total) people have now flagged this entry.")
+                : String(localized: "Thanks — the first report on this entry. We'll check it.")
         case .failed(let message): message
         case .idle:
             if shelter.hasCorroboratedProblem {
-                "\(shelter.reports) people reported a problem with this entry."
+                String(localized: "\(shelter.reports) people reported a problem with this entry.")
             } else {
-                "You reported a problem with this entry."
+                String(localized: "You reported a problem with this entry.")
             }
         }
     }
@@ -239,7 +239,7 @@ struct ShelterDetailSheet: View {
             showingReport = true
         } label: {
             Label(
-                alreadyReported ? "You reported this" : "Report a problem",
+                alreadyReported ? String(localized: "You reported this") : String(localized: "Report a problem"),
                 systemImage: alreadyReported ? "flag.checkered" : "flag"
             )
             .font(VAFont.display(14, .medium))
@@ -267,9 +267,9 @@ struct ShelterDetailSheet: View {
                 alreadyReported = true
                 reportState = .sent(total)
             } catch ThreatServiceError.server(status: 429) {
-                reportState = .failed("You have reported a lot of shelters in the last hour. Try again later.")
+                reportState = .failed(String(localized: "You have reported a lot of shelters in the last hour. Try again later."))
             } catch {
-                reportState = .failed("Could not send that just now — it will need retrying.")
+                reportState = .failed(String(localized: "Could not send that just now — it will need retrying."))
             }
         }
     }

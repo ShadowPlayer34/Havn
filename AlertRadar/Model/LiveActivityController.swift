@@ -38,11 +38,11 @@ final class LiveActivityController {
     func start() {
         guard activity == nil else { return }
         guard isAvailable else {
-            lastError = "Live Activities are turned off for AlertRadar in Settings."
+            lastError = String(localized: "Live Activities are turned off for AlertRadar in Settings.")
             return
         }
         guard let latest else {
-            lastError = "No sector reading yet — the activity would have nothing to show."
+            lastError = String(localized: "No sector reading yet — the activity would have nothing to show.")
             return
         }
 

@@ -139,6 +139,10 @@ only as the fallback for "the overlay never loaded but `/check` still says there
       Simulator against the backend's own serialiser output; not yet on hardware)*
 
 ### 1.2 Push notifications (APNs)
+> ⚠️ **Needs a paid Apple Developer Program account first.** The APNs key and the Push
+> Notifications capability can't be created without it. Until then the "My District"
+> alerts are local notifications only and fire only while the app is running.
+
 - [ ] APNs auth key + entitlement + provisioning
 - [ ] `device_tokens` table (token, last sector, updated_at — no user identity)
 - [ ] `POST /api/v1/devices/register` endpoint

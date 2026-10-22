@@ -26,6 +26,7 @@ final class ThreatModel {
     var safetySheetOpen = false
     var feedDrawerOpen = false
     var systemSurfacesOpen = false
+    var homeDistrictOpen = false
     var dashboardOpen = false
     var emergencyOpen = false
     var guidesOpen = false

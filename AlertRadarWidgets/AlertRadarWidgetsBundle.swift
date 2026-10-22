@@ -5,6 +5,7 @@ import WidgetKit
 struct AlertRadarWidgetsBundle: WidgetBundle {
     var body: some Widget {
         ThreatLiveActivity()
+        DistrictAlertWidget()
         SafetyGaugeWidget()
         NearestShelterWidget()
     }

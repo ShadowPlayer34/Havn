@@ -523,6 +523,28 @@
     },
     "14:32" : {},
     "240 m" : {},
+    "🔴 Alert in Kyiv: %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🔴 Тривога в Києві: %@"
+          }
+        }
+      }
+    },
+    "🟢 All clear in Kyiv: %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "🟢 Відбій тривоги в Києві: %@"
+          }
+        }
+      }
+    },
     "A curb, ditch or wall between you and the blast. Stay away from windows." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -611,6 +633,17 @@
         }
       }
     },
+    "Alert" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тривога"
+          }
+        }
+      }
+    },
     "Alert active in this sector." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -622,6 +655,28 @@
         }
       }
     },
+    "Alert in Kyiv" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тривога в Києві"
+          }
+        }
+      }
+    },
+    "Alerts for this district reach the widget and notifications even when location access is off." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тривоги для цього району надходять у віджет і сповіщення, навіть коли доступ до геолокації вимкнено."
+          }
+        }
+      }
+    },
     "All" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -629,6 +684,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Усі"
+          }
+        }
+      }
+    },
+    "All clear" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відбій тривоги"
           }
         }
       }
@@ -717,6 +783,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ВІКНО ПРИБУТТЯ (ТЕСТ)"
+          }
+        }
+      }
+    },
+    "as of %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "станом на %@"
+          }
+        }
+      }
+    },
+    "at %@" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "о %@"
           }
         }
       }
@@ -974,6 +1062,17 @@
         }
       }
     },
+    "Clear" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відбій"
+          }
+        }
+      }
+    },
     "Cleared" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1150,6 +1249,50 @@
         }
       }
     },
+    "Darnytskyi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дарницький"
+          }
+        }
+      }
+    },
+    "Darnytskyi district" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дарницький район"
+          }
+        }
+      }
+    },
+    "Desnianskyi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Деснянський"
+          }
+        }
+      }
+    },
+    "Desnianskyi district" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Деснянський район"
+          }
+        }
+      }
+    },
     "DIRECT HIT" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1179,6 +1322,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "РАЙОН"
+          }
+        }
+      }
+    },
+    "Dniprovskyi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дніпровський"
+          }
+        }
+      }
+    },
+    "Dniprovskyi district" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дніпровський район"
           }
         }
       }
@@ -1436,6 +1601,17 @@
         }
       }
     },
+    "for %lld min" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "триває %lld хв"
+          }
+        }
+      }
+    },
     "Free · no SIM needed for 112" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1487,6 +1663,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Назвіть адресу, поверх і чи є хтось усередині."
+          }
+        }
+      }
+    },
+    "Go to a shelter." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пройдіть до укриття."
+          }
+        }
+      }
+    },
+    "Go to a shelter. Nearest — %@, %@." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Пройдіть до укриття. Найближче — %1$@, %2$@."
           }
         }
       }
@@ -1564,6 +1762,39 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Сильна кровотеча може вбити за лічені хвилини. Спершу притисніть, потім телефонуйте."
+          }
+        }
+      }
+    },
+    "Holosiivskyi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Голосіївський"
+          }
+        }
+      }
+    },
+    "Holosiivskyi district" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Голосіївський район"
+          }
+        }
+      }
+    },
+    "HOME SCREEN · LOCK SCREEN" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ПОЧАТКОВИЙ ЕКРАН · ЕКРАН БЛОКУВАННЯ"
           }
         }
       }
@@ -1773,6 +2004,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Тримайте людину в теплі та лежачи до приїзду допомоги."
+          }
+        }
+      }
+    },
+    "Kyiv" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Київ"
           }
         }
       }
@@ -2163,6 +2405,17 @@
         }
       }
     },
+    "My District" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Мій район"
+          }
+        }
+      }
+    },
     "Nearest Shelter" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2383,6 +2636,17 @@
         }
       }
     },
+    "Notifications are off for Havn. Turn them on in Settings to hear about alerts in your district." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сповіщення для Havn вимкнено. Увімкніть їх у Параметрах, щоб дізнаватися про тривоги у своєму районі."
+          }
+        }
+      }
+    },
     "Notify 2 contacts on arrival" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2395,6 +2659,28 @@
       }
     },
     "now" : {},
+    "Obolonskyi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оболонський"
+          }
+        }
+      }
+    },
+    "Obolonskyi district" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оболонський район"
+          }
+        }
+      }
+    },
     "Offline" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2461,6 +2747,17 @@
         }
       }
     },
+    "Open Havn and choose where you live." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відкрийте Havn і вкажіть, де ви живете."
+          }
+        }
+      }
+    },
     "Open Walking Route" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2516,6 +2813,28 @@
         }
       }
     },
+    "Pecherskyi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Печерський"
+          }
+        }
+      }
+    },
+    "Pecherskyi district" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Печерський район"
+          }
+        }
+      }
+    },
     "PHONE" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2527,6 +2846,17 @@
         }
       }
     },
+    "Pick your district" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оберіть район"
+          }
+        }
+      }
+    },
     "Place it 5–7 cm above the wound, tighten until bleeding stops." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2534,6 +2864,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Накладіть на 5–7 см вище рани, затягніть, доки кровотеча не зупиниться."
+          }
+        }
+      }
+    },
+    "Podilskyi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подільський"
+          }
+        }
+      }
+    },
+    "Podilskyi district" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Подільський район"
           }
         }
       }
@@ -2880,6 +3232,28 @@
         }
       }
     },
+    "Shevchenkivskyi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шевченківський"
+          }
+        }
+      }
+    },
+    "Shevchenkivskyi district" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Шевченківський район"
+          }
+        }
+      }
+    },
     "Short steps you can follow without signal. Based on State Emergency Service (DSNS) guidance." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -2920,6 +3294,28 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Головна небезпека — дим. Пригніться та виходьте якомога раніше."
+          }
+        }
+      }
+    },
+    "Solomianskyi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Солом’янський"
+          }
+        }
+      }
+    },
+    "Solomianskyi district" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Солом’янський район"
           }
         }
       }
@@ -3045,6 +3441,28 @@
         }
       }
     },
+    "Sviatoshynskyi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Святошинський"
+          }
+        }
+      }
+    },
+    "Sviatoshynskyi district" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Святошинський район"
+          }
+        }
+      }
+    },
     "System Integrations" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3153,6 +3571,17 @@
         }
       }
     },
+    "The alert lasted %lld min. You can leave the shelter." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тривога тривала %lld хв. Можна виходити з укриття."
+          }
+        }
+      }
+    },
     "The closest safe haven, ranked by walking time." : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3241,6 +3670,17 @@
         }
       }
     },
+    "Threat" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загроза"
+          }
+        }
+      }
+    },
     "Threat Check" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3248,6 +3688,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Перевірка загроз"
+          }
+        }
+      }
+    },
+    "Threat nearby" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Загроза поруч"
           }
         }
       }
@@ -3616,6 +4067,17 @@
         }
       }
     },
+    "Where I live" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Район, де я живу"
+          }
+        }
+      }
+    },
     "Whistle and warm layer" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -3645,6 +4107,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Так"
+          }
+        }
+      }
+    },
+    "You can leave the shelter." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Можна виходити з укриття."
           }
         }
       }

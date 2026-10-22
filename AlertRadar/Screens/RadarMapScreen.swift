@@ -110,6 +110,9 @@ struct RadarMapScreen: View {
                 .environment(model)
                 .environment(liveActivity)
         }
+        .sheet(isPresented: $model.homeDistrictOpen) {
+            HomeDistrictSheet()
+        }
     }
 
     // MARK: Map
@@ -305,6 +308,9 @@ struct RadarMapScreen: View {
 
     private var menuButton: some View {
         Menu {
+            Button("My District", systemImage: "house") {
+                model.homeDistrictOpen = true
+            }
             Button("Live Activity & Lock Screen", systemImage: "iphone.gen3") {
                 model.systemSurfacesOpen = true
             }

@@ -18,6 +18,8 @@ struct ContentView: View {
     @State private var zones = ThreatZonesViewModel()
     /// Shared by the map and the SOS / Guides tabs.
     @State private var location = LocationProvider()
+    /// Watches the district picked in "My District" — off the same overlay, no location.
+    @State private var districtAlerts = DistrictAlertMonitor()
 
     var body: some View {
         TabView {
@@ -38,7 +40,12 @@ struct ContentView: View {
             .environment(liveActivity)
             .environment(threats)
             .environment(zones)
+            .environment(districtAlerts)
             .preferredColorScheme(.dark)
+            // A fresh payload, and every prune between payloads: a zone lapsing on its own
+            // `expires_at` is an all-clear too.
+            .onChange(of: zones.lastUpdated) { districtAlerts.evaluate(zones) }
+            .onChange(of: zones.tick) { districtAlerts.evaluate(zones) }
             .task { await location.start() }
             .task { await model.runCountdown() }
             .task { await zones.run() }

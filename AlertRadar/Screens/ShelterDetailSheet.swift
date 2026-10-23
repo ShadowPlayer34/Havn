@@ -71,6 +71,12 @@ struct ShelterDetailSheet: View {
                     .foregroundStyle(Color(hex: 0x5CC2F0))
                     .buttonStyle(.plain)
             }
+            if let placeName = shelter.placeName {
+                Text(placeName)
+                    .font(VAFont.display(14, .regular))
+                    .foregroundStyle(VA.secondary(0.7))
+                    .fixedSize(horizontal: false, vertical: true)
+            }
             HStack(spacing: 8) {
                 Text(shelter.typeTitle)
                     .font(VAFont.display(12))
@@ -93,14 +99,62 @@ struct ShelterDetailSheet: View {
     }
 
     private var statRow: some View {
-        HStack(spacing: 8) {
-            stat(shelter.distanceLabel, caption: String(localized: "\(shelter.walkMinutes) min walk"), tint: VA.green)
-            stat(
-                shelter.isAlwaysOpen ? "24/7" : "Limited",
-                caption: shelter.isAlwaysOpen ? "always open" : "check hours",
-                tint: shelter.isAlwaysOpen ? VA.green : VA.orange
-            )
+        // Once a minute, so "until 17:00" turns into "Closed" while the sheet is open.
+        TimelineView(.everyMinute) { context in
+            let status = shelter.hours.status(at: context.date)
+            HStack(spacing: 8) {
+                stat(shelter.distanceLabel, caption: String(localized: "\(shelter.walkMinutes) min walk"), tint: VA.green)
+                stat(Self.value(status), caption: Self.caption(status), tint: Self.tint(status))
+            }
+            // Both cards as tall as the taller caption.
+            .fixedSize(horizontal: false, vertical: true)
         }
+    }
+
+    private static func value(_ status: ShelterHours.Status) -> String {
+        switch status {
+        case .alwaysOpen: "24/7"
+        case .open: String(localized: "Open")
+        case .closed, .unavailable: String(localized: "Closed")
+        case .duringAlerts: String(localized: "On alert")
+        case .unknown: "Limited"
+        }
+    }
+
+    private static func caption(_ status: ShelterHours.Status) -> String {
+        switch status {
+        case .alwaysOpen: "always open"
+        case .open(let closesAt): String(localized: "until \(clock(closesAt))")
+        case .closed(let opensAt, let daysAhead, let weekday):
+            switch daysAhead {
+            case 0: String(localized: "opens \(clock(opensAt))")
+            case 1: String(localized: "opens tomorrow \(clock(opensAt))")
+            default: String(localized: "opens \(weekdayName(weekday)) \(clock(opensAt))")
+            }
+        case .duringAlerts: String(localized: "opens during alerts")
+        case .unavailable: String(localized: "out of service")
+        case .unknown: "check hours"
+        }
+    }
+
+    /// Green only where the register says the door is open now, or will be on an alert.
+    private static func tint(_ status: ShelterHours.Status) -> Color {
+        switch status {
+        case .alwaysOpen, .open, .duringAlerts: VA.green
+        case .closed, .unavailable, .unknown: VA.orange
+        }
+    }
+
+    /// The register's own wall-clock time, so no time-zone conversion: "08:00", "24:00".
+    private static func clock(_ minute: Int) -> String {
+        String(format: "%02d:%02d", minute / 60, minute % 60)
+    }
+
+    /// "Mon", "пн", in the language the app is running in.
+    private static func weekdayName(_ isoWeekday: Int) -> String {
+        var calendar = Calendar(identifier: .gregorian)
+        calendar.locale = Locale(identifier: Bundle.main.preferredLocalizations.first ?? "en")
+        return calendar.shortStandaloneWeekdaySymbols[isoWeekday % 7]
     }
 
     private func stat(_ value: String, caption: String, tint: Color) -> some View {
@@ -109,11 +163,13 @@ struct ShelterDetailSheet: View {
                 .font(VAFont.rounded(28))
                 .tracking(em: -0.02, size: 28)
                 .foregroundStyle(tint)
+                .lineLimit(1)
+                .minimumScaleFactor(0.6)
             Text(LocalizedStringKey(caption))
                 .font(VAFont.display(11, .medium))
                 .foregroundStyle(VA.secondary(0.55))
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
         .padding(14)
         .background(RoundedRectangle(cornerRadius: 22).fill(tint.opacity(0.12)))
         .overlay(RoundedRectangle(cornerRadius: 22).strokeBorder(tint.opacity(0.3), lineWidth: 0.5))
@@ -121,31 +177,44 @@ struct ShelterDetailSheet: View {
 
     private var details: some View {
         VStack(spacing: 0) {
+            // No compass on screen: an arrow would only be right with the phone facing north.
+            if let origin = threats.sheltersOrigin, let direction = shelter.direction(from: origin) {
+                row("DIRECTION", value: direction.title)
+                divider
+            }
             if let kind = shelter.kind {
                 row("TYPE", value: kind)
+                divider
+            }
+            if let building = shelter.buildingDescription {
+                row("BUILDING", value: building)
+                divider
             }
             if let workingTime = shelter.workingTime {
-                divider
                 row("HOURS", value: workingTime, accent: shelter.isAlwaysOpen ? VA.green : VA.orange)
+                divider
             }
             if let accessible = shelter.accessible {
-                divider
                 row("STEP-FREE", value: accessible ? String(localized: "Yes") : String(localized: "No"),
                     accent: accessible ? VA.green : VA.secondary(0.8))
+                divider
+            }
+            if shelter.hasWiFi {
+                row("WI-FI", value: String(localized: "Yes"), accent: VA.green)
+                divider
             }
             if let district = shelter.district {
-                divider
                 row("DISTRICT", value: district)
-            }
-            if let notes = shelter.notes {
                 divider
-                row("NOTE", value: notes)
+            }
+            if let note = shelter.registerNote {
+                row("NOTE", value: note)
+                divider
             }
             if let phone = shelter.phone {
+                phoneRow(phone)
                 divider
-                row("PHONE", value: phone, accent: VA.cyan)
             }
-            divider
             row("SOURCE", value: shelter.provenanceLabel,
                 accent: shelter.isCityRegister ? VA.secondary(0.8) : VA.orangeText)
         }
@@ -158,20 +227,49 @@ struct ShelterDetailSheet: View {
     }
 
     private func row(_ label: String, value: String, accent: Color = .white) -> some View {
+        row(label) {
+            Text(value)
+                .font(VAFont.display(14, .regular))
+                .foregroundStyle(accent)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+    }
+
+    private func row<Value: View>(_ label: String, @ViewBuilder value: () -> Value) -> some View {
         HStack(alignment: .top, spacing: 12) {
             Text(LocalizedStringKey(label))
                 .font(VAFont.mono(10, .semibold))
                 .tracking(em: 0.06, size: 10)
                 .foregroundStyle(VA.secondary(0.4))
                 .frame(width: 78, alignment: .leading)
-            Text(value)
-                .font(VAFont.display(14, .regular))
-                .foregroundStyle(accent)
-                .fixedSize(horizontal: false, vertical: true)
+            value()
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(.horizontal, 16)
         .padding(.vertical, 13)
+    }
+
+    /// Each number the register printed, ready to call. The raw text when none of it
+    /// reads as a number that can be dialled.
+    @ViewBuilder
+    private func phoneRow(_ phone: String) -> some View {
+        let numbers = shelter.phoneNumbers
+        if numbers.isEmpty {
+            row("PHONE", value: phone)
+        } else {
+            row("PHONE") {
+                VStack(alignment: .leading, spacing: 10) {
+                    ForEach(numbers, id: \.self) { number in
+                        Link(destination: number.url) {
+                            Label(number.display, systemImage: "phone.fill")
+                                .font(VAFont.display(14, .medium))
+                                .foregroundStyle(VA.cyan)
+                        }
+                        .accessibilityLabel(Text("Call \(number.display)"))
+                    }
+                }
+            }
+        }
     }
 
     /// Other people's warnings, and the outcome of this person's.

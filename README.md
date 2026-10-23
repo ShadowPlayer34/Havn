@@ -21,7 +21,7 @@
   
   A timer counts up from the first report and stays steady across overlapping reports.
 - **Am I in danger.** Your position is checked against the server's own point-in-polygon test. The answer is clear, elevated or high risk.
-- **Nearest shelter.** Shelters come from the official Kyiv city (KMDA) and Kyiv oblast (KODA) registers. They are ranked by walking time and show opening hours and accessibility. You can report a wrong entry.
+- **Nearest shelter.** Shelters come from the official Kyiv city (KMDA) and Kyiv oblast (KODA) registers. They are ranked by walking time and show whether they are open right now, which way to walk, accessibility, Wi-Fi where the register lists it, and a phone number you can tap. You can report a wrong entry.
 - **My District.** Pick the district you live in. A home screen widget, a lock screen widget and notifications then say **Alert**, **Threat nearby** or **All clear** for that district. This works with location access off.
 - **Live Activity.** The current threat goes on the lock screen and in the Dynamic Island.
 - **SOS.** One-tap emergency numbers, plus your own emergency contacts with an "I'm safe" message.

@@ -61,11 +61,87 @@ nonisolated struct Shelter: Codable, Equatable, Sendable, Identifiable {
     /// and still visible to whoever filed it.
     var hasCorroboratedProblem: Bool { reports >= 2 }
 
+    /// The register's hours, read as far as they can be read safely.
+    var hours: ShelterHours { ShelterHours(registerText: workingTime) }
+
     /// True when the register says round-the-clock. Anything else carries a caveat
     /// worth showing rather than hiding behind a green pin.
-    var isAlwaysOpen: Bool {
-        guard let workingTime else { return false }
-        return workingTime.localizedCaseInsensitiveContains("цілодобово")
+    var isAlwaysOpen: Bool { hours == .alwaysOpen }
+
+    /// What the place is called — "Сквирський ЗЗСО І-ІІІ ст. №3" — for recognising the
+    /// building once you are standing in front of it. The city register's `name` is
+    /// "<title>, <address>", so the address is trimmed off. Nil when nothing is left
+    /// that the header or the rows below it do not already say.
+    var placeName: String? {
+        guard let address, !address.isEmpty else { return nil }
+        var label = name.trimmingCharacters(in: .whitespacesAndNewlines)
+        if label.hasSuffix(", \(address)") {
+            label = String(label.dropLast(address.count + 2))
+        }
+        let alreadyShown = ["Укриття", address, kind ?? "", buildingType ?? ""]
+        guard !label.isEmpty,
+              !alreadyShown.contains(where: { $0.caseInsensitiveCompare(label) == .orderedSame })
+        else { return nil }
+        return label
+    }
+
+    /// The city register's kind of building: a school, a block of flats. The oblast
+    /// loader fills the same column with the settlement type ("Село"), which the address
+    /// already says, so only the city's is worth a row.
+    var buildingDescription: String? {
+        guard isCityRegister, let buildingType, !buildingType.isEmpty,
+              buildingType.caseInsensitiveCompare(kind ?? "") != .orderedSame
+        else { return nil }
+        return buildingType
+    }
+
+    /// The oblast register has a Wi-Fi column. The loader passes a "yes" through as this
+    /// exact note and drops a "no", so a yes is all that can be shown.
+    var hasWiFi: Bool { notes == "Wi-Fi available" }
+
+    /// `notes`, minus the Wi-Fi flag that gets a row of its own.
+    var registerNote: String? { hasWiFi ? nil : notes }
+
+    nonisolated struct PhoneNumber: Hashable, Sendable {
+        /// As the register prints it.
+        let display: String
+        let url: URL
+    }
+
+    /// The register's `tel` can hold more than one number, in any punctuation. Each one
+    /// that reads as a Ukrainian number becomes something to tap; the rest stays text.
+    var phoneNumbers: [PhoneNumber] {
+        guard let phone, let regex = try? NSRegularExpression(pattern: #"[+(]?\d[\d\s()\-]{4,}\d"#) else { return [] }
+        return regex.matches(in: phone, range: NSRange(phone.startIndex..., in: phone)).compactMap { match in
+            guard let range = Range(match.range, in: phone) else { return nil }
+            let display = String(phone[range])
+            let digits = display.filter(\.isNumber)
+            let dialled: String
+            if digits.count == 12, digits.hasPrefix("380") {
+                dialled = "+" + digits
+            } else if digits.count == 10, digits.hasPrefix("0") {
+                dialled = "+38" + digits
+            } else if digits.count == 7, isCityRegister {
+                // A Kyiv landline printed without its area code.
+                dialled = "+38044" + digits
+            } else {
+                return nil
+            }
+            return URL(string: "tel:\(dialled)").map { PhoneNumber(display: display, url: $0) }
+        }
+    }
+
+    /// Which way to set off from `origin`, to the nearest of eight compass points. Nil
+    /// when the shelter is close enough that GPS error would pick the answer.
+    func direction(from origin: CLLocationCoordinate2D) -> CompassPoint? {
+        guard distanceMeters >= 40 else { return nil }
+        let fromLatitude = origin.latitude * .pi / 180
+        let toLatitude = latitude * .pi / 180
+        let deltaLongitude = (longitude - origin.longitude) * .pi / 180
+        let y = sin(deltaLongitude) * cos(toLatitude)
+        let x = cos(fromLatitude) * sin(toLatitude) - sin(fromLatitude) * cos(toLatitude) * cos(deltaLongitude)
+        let degrees = (atan2(y, x) * 180 / .pi + 360).truncatingRemainder(dividingBy: 360)
+        return CompassPoint.allCases[Int((degrees / 45).rounded()) % 8]
     }
 
     /// Both registers are official, but they are not equally precise. Kyiv city
@@ -110,6 +186,23 @@ nonisolated struct Shelter: Codable, Equatable, Sendable, Identifiable {
         case "air_raid": String(localized: "Air raid shelter")
         case "bunker": String(localized: "Bunker")
         default: String(localized: "Shelter")
+        }
+    }
+}
+
+nonisolated enum CompassPoint: CaseIterable, Sendable {
+    case north, northEast, east, southEast, south, southWest, west, northWest
+
+    var title: String {
+        switch self {
+        case .north: String(localized: "North")
+        case .northEast: String(localized: "North-east")
+        case .east: String(localized: "East")
+        case .southEast: String(localized: "South-east")
+        case .south: String(localized: "South")
+        case .southWest: String(localized: "South-west")
+        case .west: String(localized: "West")
+        case .northWest: String(localized: "North-west")
         }
     }
 }

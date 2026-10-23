@@ -43,6 +43,9 @@ final class ThreatViewModel {
     private(set) var alertStartedAt: Date?
     /// Nearest shelters for the last checked coordinate, closest first.
     private(set) var shelters: [Shelter] = []
+    /// Where `shelters` were measured from: their distances, and the direction to them,
+    /// are relative to this point rather than to wherever the phone is now.
+    private(set) var sheltersOrigin: CLLocationCoordinate2D?
     /// Kept separate from `state` so a failed refresh does not blank the last good answer.
     private(set) var lastGoodResponse: ThreatCheckResponse?
 
@@ -182,6 +185,7 @@ final class ThreatViewModel {
                     limit: 8
                 ) {
                     shelters = Self.deduplicated(fetched)
+                    sheltersOrigin = location.coordinate
                     // The widgets have no network and no location of their own — this
                     // write is the only way a real distance reaches the home screen.
                     // Left alone on a failed fetch, so the last good answer survives.

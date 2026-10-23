@@ -25,6 +25,9 @@ nonisolated struct Shelter: Codable, Equatable, Sendable, Identifiable {
     let workingTime: String?
     let phone: String?
     let accessible: Bool?
+    /// The oblast register's Wi-Fi column. Nil wherever a register does not say, which
+    /// is every city entry.
+    let wifi: Bool?
     let notes: String?
     /// How many people have flagged a problem with this entry.
     let reports: Int
@@ -33,7 +36,7 @@ nonisolated struct Shelter: Codable, Equatable, Sendable, Identifiable {
     let distanceMeters: Double
 
     enum CodingKeys: String, CodingKey {
-        case id, name, source, address, district, kind, phone, accessible, notes, reports
+        case id, name, source, address, district, kind, phone, accessible, wifi, notes, reports
         case shelterType = "shelter_type"
         case buildingType = "building_type"
         case workingTime = "working_time"
@@ -95,12 +98,16 @@ nonisolated struct Shelter: Codable, Equatable, Sendable, Identifiable {
         return buildingType
     }
 
-    /// The oblast register has a Wi-Fi column. The loader passes a "yes" through as this
-    /// exact note and drops a "no", so a yes is all that can be shown.
-    var hasWiFi: Bool { notes == "Wi-Fi available" }
+    /// A backend from before the `wifi` field passed only a "yes", as this exact note.
+    private static let wifiNote = "Wi-Fi available"
 
-    /// `notes`, minus the Wi-Fi flag that gets a row of its own.
-    var registerNote: String? { hasWiFi ? nil : notes }
+    /// Yes, no, or nil when the register does not say.
+    var hasWiFi: Bool? {
+        wifi ?? (notes == Self.wifiNote ? true : nil)
+    }
+
+    /// `notes`, minus the old Wi-Fi flag that now has a row of its own.
+    var registerNote: String? { notes == Self.wifiNote ? nil : notes }
 
     nonisolated struct PhoneNumber: Hashable, Sendable {
         /// As the register prints it.
@@ -170,7 +177,7 @@ nonisolated struct Shelter: Codable, Equatable, Sendable, Identifiable {
         Shelter(
             id: id, name: name, shelterType: shelterType, source: source, address: address,
             district: district, kind: kind, buildingType: buildingType, workingTime: workingTime,
-            phone: phone, accessible: accessible, notes: notes, reports: count,
+            phone: phone, accessible: accessible, wifi: wifi, notes: notes, reports: count,
             latitude: latitude, longitude: longitude, distanceMeters: distanceMeters
         )
     }

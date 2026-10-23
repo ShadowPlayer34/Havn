@@ -199,8 +199,9 @@ struct ShelterDetailSheet: View {
                     accent: accessible ? VA.green : VA.secondary(0.8))
                 divider
             }
-            if shelter.hasWiFi {
-                row("WI-FI", value: String(localized: "Yes"), accent: VA.green)
+            if let wifi = shelter.hasWiFi {
+                row("WI-FI", value: wifi ? String(localized: "Yes") : String(localized: "No"),
+                    accent: wifi ? VA.green : VA.secondary(0.8))
                 divider
             }
             if let district = shelter.district {

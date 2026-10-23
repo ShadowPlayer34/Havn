@@ -24,6 +24,8 @@ nonisolated enum VA {
     static let green = Color(hex: 0x34C759)
     /// #32ADE6 · interactive
     static let cyan = Color(hex: 0x32ADE6)
+    /// #FFCC00 · people's ratings — kept off orange, which already means "caveat"
+    static let yellow = Color(hex: 0xFFCC00)
 
     /// #000000 · OLED canvas
     static let canvas = Color.black

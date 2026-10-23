@@ -4396,6 +4396,733 @@
           }
         }
       }
+    },
+    "Entrance" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вхід"
+          }
+        }
+      }
+    },
+    "Hours" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Години"
+          }
+        }
+      }
+    },
+    "Step-free" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Без сходів"
+          }
+        }
+      }
+    },
+    "Wi-Fi" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wi-Fi"
+          }
+        }
+      }
+    },
+    "ENTRANCE" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВХІД"
+          }
+        }
+      }
+    },
+    "The entrance is where the pin is" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вхід там, де мітка на мапі"
+          }
+        }
+      }
+    },
+    "Edit" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Змінити"
+          }
+        }
+      }
+    },
+    "Retry" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Повторити"
+          }
+        }
+      }
+    },
+    "Delete" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити"
+          }
+        }
+      }
+    },
+    "Rated %@ out of 5. Reviews: %lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оцінка %@ з 5. Відгуків: %lld"
+          }
+        }
+      }
+    },
+    "%lld out of 5" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld з 5"
+          }
+        }
+      }
+    },
+    "Confirmed by %lld" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Confirmed by %lld person"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Confirmed by %lld people"
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Підтвердили %lld людини"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Підтвердили %lld людей"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Підтвердила %lld людина"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Підтвердили %lld людини"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld say it's wrong" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld person says it's wrong"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld people say it's wrong"
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людини кажуть, що це не так"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людей кажуть, що це не так"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людина каже, що це не так"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людини кажуть, що це не так"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld found it at the pin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld person found it at the pin"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld people found it at the pin"
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людини знайшли вхід на місці мітки"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людей знайшли вхід на місці мітки"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людина знайшла вхід на місці мітки"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людини знайшли вхід на місці мітки"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld say the pin is in the wrong place" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld person says the pin is in the wrong place"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld people say the pin is in the wrong place"
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людини кажуть, що мітка не на місці"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людей кажуть, що мітка не на місці"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людина каже, що мітка не на місці"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld людини кажуть, що мітка не на місці"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "%lld reviews" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "variations" : {
+            "plural" : {
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld review"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld reviews"
+                }
+              }
+            }
+          }
+        },
+        "uk" : {
+          "variations" : {
+            "plural" : {
+              "few" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld відгуки"
+                }
+              },
+              "many" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld відгуків"
+                }
+              },
+              "one" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld відгук"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "%lld відгуку"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "YOUR REVIEW" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВАШ ВІДГУК"
+          }
+        }
+      }
+    },
+    "%@: as listed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@: як зазначено"
+          }
+        }
+      }
+    },
+    "%@: not as listed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@: не так, як зазначено"
+          }
+        }
+      }
+    },
+    "REVIEWS" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ВІДГУКИ"
+          }
+        }
+      }
+    },
+    "No reviews yet" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відгуків ще немає"
+          }
+        }
+      }
+    },
+    "Been here? Tell others what it's like inside and whether the register is right." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Були тут? Розкажіть іншим, як там усередині і чи правильно все вказано в реєстрі."
+          }
+        }
+      }
+    },
+    "Could not load reviews." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Не вдалося завантажити відгуки."
+          }
+        }
+      }
+    },
+    "Loading reviews…" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Завантаження відгуків…"
+          }
+        }
+      }
+    },
+    "Edit your review" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Змінити свій відгук"
+          }
+        }
+      }
+    },
+    "Write a review" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Написати відгук"
+          }
+        }
+      }
+    },
+    "Reviews are anonymous. Anyone using the app can read them." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відгуки анонімні. Їх може прочитати будь-хто, хто користується застосунком."
+          }
+        }
+      }
+    },
+    "Rate this shelter" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Оцініть укриття"
+          }
+        }
+      }
+    },
+    "OVERALL" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ЗАГАЛОМ"
+          }
+        }
+      }
+    },
+    "Unusable" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Непридатне"
+          }
+        }
+      }
+    },
+    "Poor" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Погане"
+          }
+        }
+      }
+    },
+    "Okay" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Нормальне"
+          }
+        }
+      }
+    },
+    "Good" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Добре"
+          }
+        }
+      }
+    },
+    "Excellent" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Чудове"
+          }
+        }
+      }
+    },
+    "Tap a star to rate" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Торкніться зірки, щоб оцінити"
+          }
+        }
+      }
+    },
+    "IS THE REGISTER RIGHT?" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ЧИ ПРАВИЛЬНО В РЕЄСТРІ?"
+          }
+        }
+      }
+    },
+    "Answer only what you saw yourself. Leave the rest." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Відповідайте лише про те, що бачили самі. Решту пропустіть."
+          }
+        }
+      }
+    },
+    "Right" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Правильно"
+          }
+        }
+      }
+    },
+    "Wrong" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неправильно"
+          }
+        }
+      }
+    },
+    "WHAT IS IT LIKE INSIDE?" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ЯК ТАМ УСЕРЕДИНІ?"
+          }
+        }
+      }
+    },
+    "Water, toilets, seating, mobile signal, how crowded it gets…" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вода, туалети, де сісти, мобільний зв’язок, скільки там людей…"
+          }
+        }
+      }
+    },
+    "Post review" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Опублікувати відгук"
+          }
+        }
+      }
+    },
+    "Save changes" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зберегти зміни"
+          }
+        }
+      }
+    },
+    "Delete my review" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити мій відгук"
+          }
+        }
+      }
+    },
+    "Delete your review?" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Видалити свій відгук?"
+          }
+        }
+      }
+    },
+    "You have reviewed a lot of shelters in the last hour. Try again later." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ви оцінили багато укриттів за останню годину. Спробуйте пізніше."
+          }
+        }
+      }
+    },
+    "Could not send that just now. Try again in a moment." : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "uk" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Зараз не вдалося надіслати. Спробуйте ще раз за хвилину."
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

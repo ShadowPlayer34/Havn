@@ -9,7 +9,7 @@ Launch region: **Kyiv city + Kyiv oblast**.
 | 1 — Kyiv polish & UX completion | 🔨 in progress | 10 / 33 |
 | 2 — National rollout & resilience | ⬜ not started | 0 / 24 |
 | 3 — Production hardening | ⬜ not started | 0 / 31 |
-| Cross-cutting — data quality & trust | 🔁 ongoing | 5 / 9 |
+| Cross-cutting — data quality & trust | 🔁 ongoing | 6 / 11 |
 
 > **Corrections to the original brief.** Shelters are official-register **only** — the OSM
 > data was deleted (`amenity=shelter` was bus stops and gazebos; `military=bunker` was WWII
@@ -286,6 +286,12 @@ flowchart TD
 - [x] Coordinate/address cross-validation with automatic rejection
 - [x] Provenance surfaced in the app (`Kyiv city register` vs `position approximate`)
 - [x] User reporting with corroboration threshold (2 reporters) + rate limit (8/hour)
+- [x] Shelter reviews: 1–5 rating, per-fact checks of the register (entrance, hours,
+      step-free, Wi-Fi) and optional text. One per device per place, 8 new places/hour,
+      never used for ranking; a fact is flagged only when ≥2 dispute it and they outnumber
+      confirmations
+- [ ] Review moderation: let people flag a review and hide its text past a threshold —
+      anonymous free text is shown to everyone, and App Store guideline 1.2 requires this
 - [ ] Quarterly re-validation sample against an independent geocoder
 - [ ] Public data-quality page (coverage, last refresh, known gaps)
 - [ ] Reinstall-resistant report identity (needs attestation — weigh against anonymity)
@@ -309,6 +315,7 @@ flowchart TD
 | LLM extraction wrong or refused | Missed or phantom threat | Confidence floor · TTL · all-clear path · refusal logging |
 | Single API host | Total outage during a raid | Offline cache (2.2) → multi-AZ |
 | Report abuse | Good shelters discredited | Corroboration threshold · rate limit · human review (1.3) |
+| Review abuse | Abusive text, or a good shelter rated down | One review per device per place · rate limit · ratings never rank · flagging (open) |
 | Telegram session loss | Ingestion stops silently | Index-age alert (3.4) · documented re-auth |
 
 ---

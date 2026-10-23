@@ -25,15 +25,22 @@ nonisolated struct Shelter: Codable, Equatable, Sendable, Identifiable {
     let workingTime: String?
     let phone: String?
     let accessible: Bool?
+    /// Wi-Fi on site, per the register. Nil where it says nothing — the city register
+    /// has no such column; the oblast one answers for every entry.
+    let wifi: Bool?
     let notes: String?
-    /// How many people have flagged a problem with this entry.
-    let reports: Int
+    /// How many people have flagged a problem with this entry. Settable only here, so
+    /// a sent report can show up on the pin without waiting for the next fetch.
+    private(set) var reports: Int
+    /// What people who have been there make of it. Nil until somebody has reviewed it,
+    /// and on a backend that predates reviews.
+    private(set) var rating: ShelterRating?
     let latitude: Double
     let longitude: Double
     let distanceMeters: Double
 
     enum CodingKeys: String, CodingKey {
-        case id, name, source, address, district, kind, phone, accessible, notes, reports
+        case id, name, source, address, district, kind, phone, accessible, wifi, notes, reports, rating
         case shelterType = "shelter_type"
         case buildingType = "building_type"
         case workingTime = "working_time"
@@ -94,13 +101,6 @@ nonisolated struct Shelter: Codable, Equatable, Sendable, Identifiable {
         else { return nil }
         return buildingType
     }
-
-    /// The oblast register has a Wi-Fi column. The loader passes a "yes" through as this
-    /// exact note and drops a "no", so a yes is all that can be shown.
-    var hasWiFi: Bool { notes == "Wi-Fi available" }
-
-    /// `notes`, minus the Wi-Fi flag that gets a row of its own.
-    var registerNote: String? { hasWiFi ? nil : notes }
 
     nonisolated struct PhoneNumber: Hashable, Sendable {
         /// As the register prints it.
@@ -165,14 +165,18 @@ nonisolated struct Shelter: Codable, Equatable, Sendable, Identifiable {
         return name
     }
 
-    /// Same shelter, new report count — the struct is immutable by design.
+    /// Same shelter, new report count.
     func withReports(_ count: Int) -> Shelter {
-        Shelter(
-            id: id, name: name, shelterType: shelterType, source: source, address: address,
-            district: district, kind: kind, buildingType: buildingType, workingTime: workingTime,
-            phone: phone, accessible: accessible, notes: notes, reports: count,
-            latitude: latitude, longitude: longitude, distanceMeters: distanceMeters
-        )
+        var copy = self
+        copy.reports = count
+        return copy
+    }
+
+    /// Same shelter, new rating — after this device writes or withdraws a review.
+    func withRating(_ rating: ShelterRating?) -> Shelter {
+        var copy = self
+        copy.rating = rating
+        return copy
     }
 
     var typeTitle: String {
@@ -279,7 +283,8 @@ nonisolated struct ShelterReportAck: Decodable, Sendable {
 }
 
 /// The device's reporting identity: a random UUID, created once, never sent anywhere
-/// but the report body. Deliberately not the IDFV — this must not follow the user.
+/// but the report body and the review endpoints' `X-Client-ID`. Deliberately not the
+/// IDFV — this must not follow the user.
 nonisolated enum ReportingClient {
     private static let key = "shelter.report.client-id"
     private static let reportedKey = "shelter.report.submitted-ids"

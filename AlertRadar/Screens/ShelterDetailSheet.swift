@@ -3,7 +3,8 @@
 //  AlertRadar
 //
 //  What you get when you tap a shelter pin. Everything here answers one question:
-//  can I actually get into this place, right now.
+//  can I actually get into this place, right now. Below the register's answer, what
+//  people who have been there say about it.
 //
 
 import MapKit
@@ -16,6 +17,10 @@ struct ShelterDetailSheet: View {
     @State private var showingReport = false
     @State private var reportState: ReportState = .idle
     @State private var alreadyReported = false
+    /// Nil until the first fetch lands; the sheet is usable long before then.
+    @State private var reviews: ShelterReviewsResponse?
+    @State private var reviewsFailed = false
+    @State private var composingReview = false
 
     private enum ReportState: Equatable {
         case idle, sending, sent(Int), failed(String)
@@ -35,6 +40,7 @@ struct ShelterDetailSheet: View {
                         reportBanner
                     }
                     details
+                    reviewsSection
                 }
                 .padding(.horizontal, 20)
                 // Clear of the system grabber.
@@ -55,6 +61,18 @@ struct ShelterDetailSheet: View {
             .padding(.bottom, 16)
             .background(.ultraThinMaterial)
         }
+        .task { await loadReviews() }
+        .sheet(isPresented: $composingReview) {
+            ShelterReviewSheet(shelter: shelter, existing: reviews?.mine) { reviews = $0 }
+                .presentationDetents([.large])
+                .presentationDragIndicator(.visible)
+        }
+    }
+
+    /// The fetched rating once there is one — it is newer than the copy the pin carried
+    /// in, and it is what changes when this device writes a review.
+    private var rating: ShelterRating? {
+        reviews.map(\.rating) ?? shelter.rating
     }
 
     private var header: some View {
@@ -84,6 +102,9 @@ struct ShelterDetailSheet: View {
                     .padding(.horizontal, 9)
                     .padding(.vertical, 5)
                     .background(Capsule().fill(VA.green.opacity(0.16)))
+                if let rating {
+                    RatingChip(rating: rating)
+                }
                 if !shelter.isCityRegister {
                     // Oblast pins are hand-placed; do not let the map imply metre accuracy.
                     Text("APPROX. POSITION")
@@ -191,23 +212,25 @@ struct ShelterDetailSheet: View {
                 divider
             }
             if let workingTime = shelter.workingTime {
-                row("HOURS", value: workingTime, accent: shelter.isAlwaysOpen ? VA.green : VA.orange)
+                row("HOURS", value: workingTime, accent: shelter.isAlwaysOpen ? VA.green : VA.orange,
+                    checked: .hours)
                 divider
             }
             if let accessible = shelter.accessible {
                 row("STEP-FREE", value: accessible ? String(localized: "Yes") : String(localized: "No"),
-                    accent: accessible ? VA.green : VA.secondary(0.8))
+                    accent: accessible ? VA.green : VA.secondary(0.8), checked: .accessible)
                 divider
             }
-            if shelter.hasWiFi {
-                row("WI-FI", value: String(localized: "Yes"), accent: VA.green)
+            if let wifi = shelter.wifi {
+                row("WI-FI", value: wifi ? String(localized: "Yes") : String(localized: "No"),
+                    accent: wifi ? VA.green : VA.secondary(0.8), checked: .wifi)
                 divider
             }
             if let district = shelter.district {
                 row("DISTRICT", value: district)
                 divider
             }
-            if let note = shelter.registerNote {
+            if let note = shelter.notes {
                 row("NOTE", value: note)
                 divider
             }
@@ -215,8 +238,10 @@ struct ShelterDetailSheet: View {
                 phoneRow(phone)
                 divider
             }
+            // Whether the pin is where the door is: a question about the register's
+            // position, which is what this row is already answering.
             row("SOURCE", value: shelter.provenanceLabel,
-                accent: shelter.isCityRegister ? VA.secondary(0.8) : VA.orangeText)
+                accent: shelter.isCityRegister ? VA.secondary(0.8) : VA.orangeText, checked: .location)
         }
         .background(RoundedRectangle(cornerRadius: 24).fill(.white.opacity(0.07)))
         .overlay(RoundedRectangle(cornerRadius: 24).strokeBorder(.white.opacity(0.14), lineWidth: 0.5))
@@ -226,12 +251,24 @@ struct ShelterDetailSheet: View {
         Rectangle().fill(.white.opacity(0.12)).frame(height: 0.5)
     }
 
-    private func row(_ label: String, value: String, accent: Color = .white) -> some View {
-        row(label) {
-            Text(value)
-                .font(VAFont.display(14, .regular))
-                .foregroundStyle(accent)
-                .fixedSize(horizontal: false, vertical: true)
+    /// `checked` names the register fact this row states, so what reviewers found when
+    /// they checked it can sit right under the claim.
+    private func row(
+        _ label: String, value: String, accent: Color = .white, checked fact: ShelterFact? = nil
+    ) -> some View {
+        let tally = fact.flatMap { reviews?.facts[$0] }
+        return row(label) {
+            VStack(alignment: .leading, spacing: 5) {
+                Text(value)
+                    .font(VAFont.display(14, .regular))
+                    // A green "Yes" over "2 say it's wrong" would be the sheet arguing
+                    // with itself.
+                    .foregroundStyle(tally?.isDisputed == true ? VA.orangeText : accent)
+                    .fixedSize(horizontal: false, vertical: true)
+                if let fact, let tally, !tally.isEmpty {
+                    FactTallyLine(fact: fact, tally: tally)
+                }
+            }
         }
     }
 
@@ -370,6 +407,109 @@ struct ShelterDetailSheet: View {
                 reportState = .failed(String(localized: "Could not send that just now — it will need retrying."))
             }
         }
+    }
+
+    // MARK: Reviews
+
+    private func loadReviews() async {
+        reviewsFailed = false
+        do {
+            reviews = try await threats.reviews(for: shelter)
+        } catch is CancellationError {
+            // The sheet went away.
+        } catch {
+            reviewsFailed = true
+        }
+    }
+
+    private var reviewsSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("REVIEWS")
+                .font(VAFont.mono(10, .semibold))
+                .tracking(em: 0.06, size: 10)
+                .foregroundStyle(VA.secondary(0.4))
+                .padding(.top, 6)
+            reviewsSummary
+            if let mine = reviews?.mine {
+                ReviewCard(review: mine, isMine: true) { composingReview = true }
+            }
+            ForEach(reviews?.reviews ?? []) { review in
+                ReviewCard(review: review)
+            }
+        }
+    }
+
+    private var reviewsSummary: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            if let reviews {
+                if let rating = reviews.rating {
+                    HStack(alignment: .center, spacing: 12) {
+                        Text(rating.averageLabel)
+                            .font(VAFont.rounded(36))
+                            .foregroundStyle(.white)
+                        VStack(alignment: .leading, spacing: 4) {
+                            StarsView(rating: rating.average, size: 14)
+                            Text("\(rating.count) reviews")
+                                .font(VAFont.display(12, .medium))
+                                .foregroundStyle(VA.secondary(0.55))
+                        }
+                        Spacer(minLength: 0)
+                    }
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel(Text("Rated \(rating.averageLabel) out of 5. Reviews: \(rating.count)"))
+                } else {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("No reviews yet")
+                            .font(VAFont.display(15))
+                            .foregroundStyle(.white)
+                        Text("Been here? Tell others what it's like inside and whether the register is right.")
+                            .font(VAFont.display(13, .regular))
+                            .foregroundStyle(VA.secondary(0.6))
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+                writeReviewButton(editing: reviews.mine != nil)
+            } else if reviewsFailed {
+                HStack(spacing: 10) {
+                    Text("Could not load reviews.")
+                        .font(VAFont.display(13, .regular))
+                        .foregroundStyle(VA.secondary(0.6))
+                    Spacer(minLength: 0)
+                    Button("Retry") { Task { await loadReviews() } }
+                        .font(VAFont.display(13))
+                        .foregroundStyle(VA.cyan)
+                        .buttonStyle(.plain)
+                }
+            } else {
+                HStack(spacing: 10) {
+                    ProgressView()
+                    Text("Loading reviews…")
+                        .font(VAFont.display(13, .regular))
+                        .foregroundStyle(VA.secondary(0.6))
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(16)
+        .background(RoundedRectangle(cornerRadius: 24).fill(.white.opacity(0.07)))
+        .overlay(RoundedRectangle(cornerRadius: 24).strokeBorder(.white.opacity(0.14), lineWidth: 0.5))
+    }
+
+    private func writeReviewButton(editing: Bool) -> some View {
+        Button {
+            composingReview = true
+        } label: {
+            Label(
+                editing ? String(localized: "Edit your review") : String(localized: "Write a review"),
+                systemImage: editing ? "pencil" : "star.bubble"
+            )
+            .font(VAFont.display(14))
+            .foregroundStyle(VA.cyanText)
+            .frame(maxWidth: .infinity)
+            .frame(height: 40)
+            .background(Capsule().fill(VA.cyan.opacity(0.16)))
+        }
+        .buttonStyle(.plain)
     }
 
     private var routeButton: some View {

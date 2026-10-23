@@ -14,6 +14,8 @@ nonisolated enum ThreatAPI {
 
     static let checkPath = "/api/v1/threats/check"
     static let nearestSheltersPath = "/api/v1/shelters/nearest"
+    /// One shelter's own endpoints hang off this: `/{id}/report`, `/{id}/reviews`, `/{id}/review`.
+    static let sheltersPath = "/api/v1/shelters"
     static let zonesPath = "/api/v1/threats/zones"
 
     /// Fail fast. The caller retries on the next location update.

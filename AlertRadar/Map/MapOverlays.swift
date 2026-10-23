@@ -46,9 +46,15 @@ struct ShelterPin: View {
                             .font(VAFont.display(10.5))
                             .foregroundStyle(.white)
                             .lineLimit(1)
-                        Text("\(shelter.distanceLabel) · \(shelter.walkMinutes) min")
-                            .font(VAFont.display(9, .medium))
-                            .foregroundStyle(VA.greenText)
+                        HStack(spacing: 4) {
+                            Text("\(shelter.distanceLabel) · \(shelter.walkMinutes) min")
+                                .foregroundStyle(VA.greenText)
+                            if let rating = shelter.rating {
+                                Text(verbatim: "★ \(rating.averageLabel)")
+                                    .foregroundStyle(VA.yellow)
+                            }
+                        }
+                        .font(VAFont.display(9, .medium))
                     }
                     .fixedSize()
                 }

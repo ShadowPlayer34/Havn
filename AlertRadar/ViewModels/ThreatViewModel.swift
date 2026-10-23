@@ -111,6 +111,36 @@ final class ThreatViewModel {
         return total
     }
 
+    /// What people who have been there say. Fetched each time the sheet opens rather
+    /// than cached: it is read rarely, and only ever by someone looking at it.
+    func reviews(for shelter: Shelter) async throws -> ShelterReviewsResponse {
+        let response = try await service.shelterReviews(id: shelter.id)
+        applyRating(response.rating, to: shelter.id)
+        return response
+    }
+
+    /// Write or replace this device's review, and carry the new rating to the pin.
+    func review(_ shelter: Shelter, _ review: ShelterReviewRequest) async throws -> ShelterReviewsResponse {
+        let response = try await service.reviewShelter(id: shelter.id, review: review)
+        applyRating(response.rating, to: shelter.id)
+        return response
+    }
+
+    func withdrawReview(of shelter: Shelter) async throws -> ShelterReviewsResponse {
+        let response = try await service.deleteShelterReview(id: shelter.id)
+        applyRating(response.rating, to: shelter.id)
+        return response
+    }
+
+    private func applyRating(_ rating: ShelterRating?, to shelterID: String) {
+        guard let index = shelters.firstIndex(where: { $0.id == shelterID }),
+              shelters[index].rating != rating
+        else { return }
+        var updated = shelters
+        updated[index] = shelters[index].withRating(rating)
+        shelters = updated
+    }
+
     var errorMessage: String? {
         guard case .failure(let error) = state else { return nil }
         return (error as? LocalizedError)?.errorDescription ?? error.localizedDescription

@@ -352,7 +352,7 @@ nonisolated extension ThreatZoneCollection {
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         generatedAt = try container.decodeIfPresent(String.self, forKey: .generatedAt)
-            .flatMap(GeoJSONTimestamp.date(from:))
+            .flatMap(APITimestamp.date(from:))
         version = try container.decodeIfPresent(Int.self, forKey: .version)
         zones = try container.decode([FeatureDTO].self, forKey: .features).compactMap(\.zone)
     }
@@ -376,8 +376,8 @@ private nonisolated struct FeatureDTO: Decodable {
         guard let kind = ThreatZoneKind(rawValue: properties.kind),
               // No parsable expiry means no way to drop this locally when it lapses, and
               // a zone that can only disappear on a version bump is worse than none.
-              let updatedAt = GeoJSONTimestamp.date(from: properties.updated_at),
-              let expiresAt = GeoJSONTimestamp.date(from: properties.expires_at),
+              let updatedAt = APITimestamp.date(from: properties.updated_at),
+              let expiresAt = APITimestamp.date(from: properties.expires_at),
               let rings = geometry?.polygons, !rings.isEmpty
         else {
             zone = nil
@@ -404,7 +404,7 @@ private nonisolated struct FeatureDTO: Decodable {
             directHit: properties.direct_hit ?? (kind == .core),
             sectors: properties.sectors ?? [],
             etaMinutes: properties.eta_minutes,
-            firstSeenAt: properties.first_seen_at.flatMap(GeoJSONTimestamp.date(from:)) ?? updatedAt,
+            firstSeenAt: properties.first_seen_at.flatMap(APITimestamp.date(from:)) ?? updatedAt,
             updatedAt: updatedAt,
             expiresAt: expiresAt,
             polygons: polygons
@@ -469,8 +469,9 @@ private nonisolated struct GeometryDTO: Decodable {
 
 /// `datetime.isoformat()` output: an offset, and fractional seconds only when the clock
 /// had them. Two format styles rather than one lenient parse, so what is accepted is
-/// written down here rather than inherited from Foundation's mood.
-private nonisolated enum GeoJSONTimestamp {
+/// written down here rather than inherited from Foundation's mood. The overlay's
+/// properties parse with it, and so does every `Date` the network service decodes.
+nonisolated enum APITimestamp {
     private static let fractional = Date.ISO8601FormatStyle(includingFractionalSeconds: true)
     private static let whole = Date.ISO8601FormatStyle(includingFractionalSeconds: false)
 

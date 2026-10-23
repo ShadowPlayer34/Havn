@@ -2,7 +2,8 @@
 //  ThreatNetworkService.swift
 //  AlertRadar
 //
-//  Talks to GET /api/v1/threats/check, /shelters/nearest and /threats/zones. Short
+//  Talks to GET /api/v1/threats/check, /shelters/nearest and /threats/zones, and to one
+//  shelter's report and review endpoints. Short
 //  timeouts by design: a threat check that arrives late is worse than one that fails fast
 //  and retries on the next fix.
 //
@@ -57,6 +58,9 @@ protocol ThreatNetworkServiceProtocol: Sendable {
     func checkThreat(latitude: Double, longitude: Double) async throws -> ThreatCheckResponse
     func nearestShelters(latitude: Double, longitude: Double, limit: Int) async throws -> [Shelter]
     func reportShelter(id: String, reason: ShelterReportReason, note: String?) async throws -> Int
+    func shelterReviews(id: String) async throws -> ShelterReviewsResponse
+    func reviewShelter(id: String, review: ShelterReviewRequest) async throws -> ShelterReviewsResponse
+    func deleteShelterReview(id: String) async throws -> ShelterReviewsResponse
     func threatZones(ifNoneMatch etag: String?) async throws -> ThreatZonesResult
 }
 
@@ -70,7 +74,18 @@ actor ThreatNetworkService: ThreatNetworkServiceProtocol {
     init(baseURL: URL = ThreatAPI.baseURL, session: URLSession? = nil) {
         self.baseURL = baseURL
         self.session = session ?? Self.makeSession()
-        self.decoder = JSONDecoder()
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .custom { decoder in
+            let container = try decoder.singleValueContainer()
+            let raw = try container.decode(String.self)
+            guard let date = APITimestamp.date(from: raw) else {
+                throw DecodingError.dataCorruptedError(
+                    in: container, debugDescription: "Not an ISO 8601 timestamp: \(raw)"
+                )
+            }
+            return date
+        }
+        self.decoder = decoder
     }
 
     private static func makeSession() -> URLSession {
@@ -109,11 +124,40 @@ actor ThreatNetworkService: ThreatNetworkServiceProtocol {
 
     func reportShelter(id: String, reason: ShelterReportReason, note: String?) async throws -> Int {
         let body = ShelterReportRequest(reason: reason, note: note, clientId: ReportingClient.id)
-        let ack: ShelterReportAck = try await post(
-            path: "\(ThreatAPI.nearestSheltersPath.replacingOccurrences(of: "/nearest", with: ""))/\(id)/report",
-            body: body
-        )
+        let ack: ShelterReportAck = try await post(path: "\(ThreatAPI.sheltersPath)/\(id)/report", body: body)
         return ack.reports
+    }
+
+    func shelterReviews(id: String) async throws -> ShelterReviewsResponse {
+        try await reviewCall("GET", path: "\(ThreatAPI.sheltersPath)/\(id)/reviews")
+    }
+
+    func reviewShelter(id: String, review body: ShelterReviewRequest) async throws -> ShelterReviewsResponse {
+        try await reviewCall("PUT", path: "\(ThreatAPI.sheltersPath)/\(id)/review", body: JSONEncoder().encode(body))
+    }
+
+    func deleteShelterReview(id: String) async throws -> ShelterReviewsResponse {
+        try await reviewCall("DELETE", path: "\(ThreatAPI.sheltersPath)/\(id)/review")
+    }
+
+    /// Every review call carries the device's anonymous id as `X-Client-ID` — the GET
+    /// and the DELETE have no body to put it in — so the server can tell this device's
+    /// own review from everyone else's. Status codes are mapped as for reports, so a
+    /// 429 reads the same whichever of the two was refused.
+    private func reviewCall<T: Decodable>(_ method: String, path: String, body: Data? = nil) async throws -> T {
+        var request = try makeRequest(path: path, query: [])
+        request.httpMethod = method
+        request.setValue(ReportingClient.id, forHTTPHeaderField: "X-Client-ID")
+        if let body {
+            request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.httpBody = body
+        }
+
+        let (data, http) = try await send(request)
+        guard (200..<300).contains(http.statusCode) else {
+            throw ThreatServiceError.server(status: http.statusCode)
+        }
+        return try decode(T.self, from: data)
     }
 
     private func post<Body: Encodable, T: Decodable>(path: String, body: Body) async throws -> T {
@@ -262,6 +306,27 @@ nonisolated struct StubThreatNetworkService: ThreatNetworkServiceProtocol {
     func reportShelter(id: String, reason: ShelterReportReason, note: String?) async throws -> Int {
         try await Task.sleep(for: delay)
         return 1
+    }
+
+    func shelterReviews(id: String) async throws -> ShelterReviewsResponse {
+        try await Task.sleep(for: delay)
+        return ShelterReviewsResponse(shelterId: id, rating: nil, facts: FactTallies(), reviews: [], mine: nil)
+    }
+
+    func reviewShelter(id: String, review: ShelterReviewRequest) async throws -> ShelterReviewsResponse {
+        try await Task.sleep(for: delay)
+        let mine = ShelterReview(
+            id: "stub", rating: review.rating, checks: review.checks, text: review.text,
+            createdAt: .now, updatedAt: .now
+        )
+        return ShelterReviewsResponse(
+            shelterId: id, rating: ShelterRating(average: Double(review.rating), count: 1),
+            facts: FactTallies(), reviews: [], mine: mine
+        )
+    }
+
+    func deleteShelterReview(id: String) async throws -> ShelterReviewsResponse {
+        try await shelterReviews(id: id)
     }
 
     func threatZones(ifNoneMatch etag: String?) async throws -> ThreatZonesResult {
